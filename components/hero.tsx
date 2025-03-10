@@ -18,7 +18,7 @@ export default function Hero() {
           The Ultimate Next.js UI{" "}
           <span
             className="bg-clip-text text-transparent bg-gradient-to-r
-          from-indigo-400  to-pink-400 duration-300"
+          from-indigo-400  to-pink-400"
           >
             Component
           </span>{" "}
