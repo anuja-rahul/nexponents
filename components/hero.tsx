@@ -14,7 +14,7 @@ export default function Hero() {
           dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#2e43df_100%)]"
         />
 
-        <h1 className="text-foreground text-3xl max-w-4/5 md:text-7xl font-bold md:max-w-3/5 w-fit text-center text-balance tracking-tighter">
+        <h1 className="text-foreground text-4xl max-w-4/5 md:text-7xl font-bold md:max-w-3/5 w-fit text-center text-balance tracking-tighter">
           The Ultimate Next.js UI{" "}
           <span
             className="bg-clip-text text-transparent bg-gradient-to-r

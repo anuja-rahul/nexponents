@@ -3,7 +3,9 @@
   width: 100px;
   border-radius: 25px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   overflow: hidden;
   //   border: 0.5px solid #040499;
 
@@ -57,7 +59,7 @@
 
       &:nth-of-type(2) {
         position: absolute;
-        transform: rotateX(-90deg) translateY(9px);
+        transform: rotateX(-90deg) translateY(11px);
         transform-origin: bottom center;
         opacity: 0;
       }

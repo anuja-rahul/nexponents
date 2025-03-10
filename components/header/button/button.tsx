@@ -13,7 +13,10 @@ export default function Button({ isActive, setIsActive }: ButtonProps) {
       onClick={() => {
         setIsActive(!isActive);
       }}
-      className={clsx(styles.button, "border-2 border-blue-900")}
+      className={clsx(
+        styles.button
+        // "border-2 border-blue-900"
+      )}
     >
       <motion.div
         className={styles.slider}
