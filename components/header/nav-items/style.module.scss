@@ -11,6 +11,15 @@
     .linkContainer {
       perspective: 120px;
       perspective-origin: bottom;
+
+      &:hover {
+        transform: translateY(-4px) translateX(2px);
+        transition: transform 0.3s ease-out;
+        .link {
+            text-shadow: -6px 6px 10px rgba(0, 0, 0, 0.4);
+            transition: text-shadow 0.3s ease-out;
+        }
+      }
     }
 
     .link {
