@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import clsx from "clsx";
+import { JSX } from "react";
+import { MenuIcon, XIcon } from "lucide-react";
 
 interface ButtonProps {
   isActive: boolean;
@@ -29,10 +31,10 @@ export default function Button({ isActive, setIsActive }: ButtonProps) {
         }}
       >
         <div className={styles.el}>
-          <PerspectiveText label="Menu" />
+          <PerspectiveText label={<MenuIcon />} />
         </div>
         <div className={styles.el}>
-          <PerspectiveText label="Close" />
+          <PerspectiveText label={<XIcon />} />
         </div>
       </motion.div>
     </div>
@@ -40,7 +42,7 @@ export default function Button({ isActive, setIsActive }: ButtonProps) {
 }
 
 type PerspectiveTextProps = {
-  label: string;
+  label: string | JSX.Element;
 };
 
 export function PerspectiveText({ label }: PerspectiveTextProps) {

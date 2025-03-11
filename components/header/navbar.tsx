@@ -17,8 +17,8 @@ const variants = {
     },
   },
   closed: {
-    width: 100,
-    height: 40,
+    width: 60,
+    height: 30,
     top: "0px",
     right: "0px",
     transition: {
@@ -33,7 +33,7 @@ export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} md:hidden`}>
       <motion.div
         variants={variants}
         animate={isActive ? "open" : "closed"}
