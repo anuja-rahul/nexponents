@@ -1,3 +1,4 @@
+import NotFoundSection from "@/components/not-found";
 import { componentList } from "@/lib/content";
 import { Metadata } from "next";
 
@@ -19,19 +20,19 @@ export default function ComponentsPage({ params }: ComponentsPageProps) {
         component scrollmenu
       </div>
 
-      <div className="bg-gray-100 lg:flex-1 w-full flex-col flex-nowrap xl:flex-none xl:flex xl:flex-row min-h-screen">
-        <div className="bg-yellow-200 px-4 mb-4 xl:flex-grow min-h-screen">
+      <div className="bg-background lg:flex-1 w-full flex-col flex-nowrap xl:flex-none xl:flex xl:flex-row min-h-screen">
+        <div className="bg-background px-4 mb-4 xl:flex-grow min-h-screen">
           {component ? (
             <div>{component.name}</div>
           ) : (
-            <h1>Component not found</h1>
+            <NotFoundSection />
           )}
         </div>
 
         {component ? (
           <div>
             <div className="hidden xl:grid">
-              <div className="bg-blue-200 px-4 w-[240px] min-h-screen">navigator</div>
+              <div className="bg-gray-200 px-4 w-[240px] min-h-screen">navigator</div>
             </div>
           </div>
         ) : null}
