@@ -3,7 +3,7 @@ export type ComponentList = typeof componentList;
 export const componentList = [
   {
     id: "rolling-text",
-    name: "Rooling Text",
+    name: "Rolling Text",
     description: "A text that rools.",
   },
 ];
