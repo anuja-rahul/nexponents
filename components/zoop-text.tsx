@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { motion } from "framer-motion";
 
 interface ZoopTextProps {
@@ -23,7 +24,10 @@ export default function ZoopText({
 }: ZoopTextProps) {
   return (
     <motion.div
-      className={`relative block overflow-hidden text-3xl font-bold uppercase md:text-5xl ${className}`}
+      className={clsx(
+        "relative block overflow-hidden text-3xl font-bold uppercase md:text-5xl",
+        className
+      )}
       initial="initial"
       style={{
         lineHeight: lineHeight,

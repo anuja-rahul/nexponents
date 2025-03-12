@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { componentList } from "./lib/content";
+import { componentList } from "./app/utils/content";
 
 export function middleware(req: Request) {
   const url = new URL(req.url);
