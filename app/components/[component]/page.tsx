@@ -16,7 +16,7 @@ export default function ComponentsPage({ params }: ComponentsPageProps) {
 
   return (
     <section className="mt-20 flex flex-col lg:grid lg:grid-cols-[280px_1fr] items-start justify-start w-full min-h-screen">
-      <div className="bg-gray-200 px-4 hidden lg:flex w-[280px] min-h-screen">
+      <div className="bg-gray-200 px-4 hidden md:flex w-[250px] lg:w-[280px] min-h-screen">
         component scrollmenu
       </div>
 
