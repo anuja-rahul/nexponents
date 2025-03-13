@@ -1,4 +1,6 @@
 import RollingTextPreview from "@/components/previews/rolling-text-preview";
+import { rollingTextCode } from "./componentCodes";
+import CreditLink from "@/components/credit-link";
 
 export type ComponentList = typeof componentList;
 export type scrollMenuList = typeof scrollMenuList;
@@ -12,11 +14,13 @@ export const scrollMenuList = [
         id: "introduction",
         name: "Introduction",
         path: "/components/introduction",
+        new: false,
       },
       {
         id: "installation",
         name: "Installation",
         path: "/components/installation",
+        new: false,
       },
     ],
   },
@@ -28,6 +32,7 @@ export const scrollMenuList = [
         id: "rolling-text",
         name: "Rolling Text",
         path: "/components/rolling-text",
+        new: true,
       },
     ],
   },
@@ -39,6 +44,7 @@ export const scrollMenuList = [
         id: "call-to-action-link",
         name: "Call to Action Link",
         path: "/components/call-to-action-link",
+        new: true,
       },
     ],
   },
@@ -62,29 +68,56 @@ export const componentList = [
         ],
       },
     ],
-    code: `
-import RollingText from "../rolling-text";
-
-export default function RollingTextPreview() {
-  return (
-    <div className="flex flex-col items-center justify-center gap-4">
-      <RollingText
-        direction="up"
-        className="text-foreground text-lg md:text-xl lg:text-4xl"
-        lineHeight={0.9}
-        text="Rolling Text Upwards"
-        altText="Rolling Text is cooler"
-      />
-      <RollingText
-        lineHeight={0.9}
-        direction="down"
-        className="text-lg md:text-xl lg:text-3xl text-foreground"
-        text="Rolling Text Down"
-      />
-    </div>
-  );
-}
-
-`,
+    demo: rollingTextCode.demo,
+    code: rollingTextCode.code,
+    props: [
+      {
+        id: "RollingText",
+        name: "Rolling text",
+        content: [
+          {
+            name: "text",
+            type: "String",
+            default: "-",
+            description: "The text to roll and display.",
+          },
+          {
+            name: "altText",
+            type: "String",
+            default: "-",
+            description: "Alternative text to display when the text is rolled.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "direction",
+            type: "String ( up | down )",
+            default: "up",
+            description: "The direction in which the text should roll.",
+          },
+          {
+            name: "lineHeight",
+            type: "Number ( 0 <= x <= 1 )",
+            default: "0.8",
+            description: "The line height of the text.",
+          },
+        ],
+      },
+    ],
+    credits: [
+      {
+        data: (
+          <CreditLink
+            text="Credit to"
+            name="Anuja Gunasinghe"
+            href="https://www.github.com/anuja-rahul"
+          />
+        ),
+      },
+    ],
   },
 ];

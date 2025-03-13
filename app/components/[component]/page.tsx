@@ -15,6 +15,17 @@ import Link from "next/link";
 import NavigatorLink from "@/components/navigator-link";
 import { BugIcon, LightbulbIcon, PencilIcon } from "lucide-react";
 import { ScriptCopyBtnComponent } from "@/components/script-copy-button";
+import {
+  Timeline,
+  TimelineContent,
+  TimelineDot,
+  TimelineHeading,
+  TimelineItem,
+  TimelineLine,
+} from "@/components/ui/timeline";
+import PropTable from "@/components/props-table";
+import { NextButton, PrevButton } from "@/components/move-buttons";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -51,6 +62,14 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                         className="text-sm text-foreground/65 font-[500] bg-background hover:bg-foreground/5 duration-300 py-[6px] p-2 w-full rounded-lg"
                       >
                         {element.name}
+                        {element.new && (
+                          <Badge
+                            variant={"default"}
+                            className="ml-2 h-4 p-1 rounded-sm items-center text-center text-balance bg-orange-300 text-slate-800"
+                          >
+                            New
+                          </Badge>
+                        )}
                       </Link>
                     );
                   })}
@@ -119,7 +138,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                   </TabsContent>
                   <TabsContent value="code" className="mt-4">
                     <ScrollArea className="h-[350px] w-full rounded-md border border-foreground/20">
-                      <CodeBlock code={component.code} />
+                      <CodeBlock code={component.demo} />
                     </ScrollArea>
                   </TabsContent>
                 </Tabs>
@@ -134,6 +153,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                   <Tabs defaultValue="cli" className="w-full">
                     <TabsList className="grid grid-cols-2 max-w-32">
                       <TabsTrigger
+                        disabled={false}
                         className="data-[state=active]:border-b-2 font-[600] pb-2 data-[state=active]:text-foreground text-foreground/70"
                         value="cli"
                       >
@@ -147,17 +167,106 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                       </TabsTrigger>
                     </TabsList>
                     <hr className="text-foreground/20 w-full" />
-                    <TabsContent value="cli" className="mt-4 w-full flex flex-col items-start justify-start">
+                    <TabsContent
+                      value="cli"
+                      className="mt-4 w-full flex flex-col items-start justify-start"
+                    >
                       {/* <ScrollArea className="h-[150px] w-full rounded-md border border-foreground/20"> */}
-                        <div className="min-h-[150px] w-full flex items-start justify-start">
-                          <ScriptCopyBtnComponent component={component.id} />
-                        </div>
+                      <div className="min-h-[150px] w-full flex items-start justify-start">
+                        <ScriptCopyBtnComponent
+                          disabled={false}
+                          component={component.id}
+                        />
+                      </div>
                       {/* </ScrollArea> */}
                     </TabsContent>
-                    <TabsContent value="manual" className="mt-4">
-                      <ScrollArea className="h-[350px] w-full rounded-md border border-foreground/20"></ScrollArea>
+                    <TabsContent
+                      value="manual"
+                      className="mt-4 rounded-md w-full"
+                    >
+                      <ScrollArea className="h-[550px] w-full rounded-md">
+                        {/* <div className="h-auto w-full items-start justify-start flex flex-col">
+                          <h2>
+                            Copy and paste the following code into your project.
+                          </h2>
+                        </div>
+                        <CodeBlock code={component.code} />
+                        */}
+                        <Timeline className="w-full">
+                          <TimelineItem status="done" className="w-full">
+                            <TimelineHeading className="text-lg font-[500] text-foreground">
+                              Copy and paste the following code into your
+                              project.
+                            </TimelineHeading>
+                            <TimelineDot
+                              customIcon="1"
+                              status="custom"
+                              className="text-foreground m-1 bg-foreground/5"
+                            />
+                            <TimelineLine done className="bg-foreground/10" />
+                            <TimelineContent className="w-full mt-6">
+                              <CodeBlock code={component.code} />
+                            </TimelineContent>
+                          </TimelineItem>
+                          <TimelineItem status="done" className="w-full">
+                            <TimelineHeading className="text-lg font-[500] text-foreground">
+                              Update the import paths to match your project
+                              setup.
+                            </TimelineHeading>
+                            <TimelineDot
+                              customIcon="2"
+                              status="custom"
+                              className="text-foreground m-1 bg-foreground/5 border-none"
+                            />
+                            <TimelineContent className="w-full mt-6"></TimelineContent>
+                          </TimelineItem>
+                        </Timeline>
+                      </ScrollArea>
                     </TabsContent>
                   </Tabs>
+                </div>
+                {/* Props Section ============================================================================================> */}
+                <div
+                  id="Props"
+                  className="flex flex-col items-start justify-start w-full gap-4 mt-4"
+                >
+                  <h1 className="text-2xl font-bold w-full border-b border-b-foreground/20 pb-3">
+                    Props
+                  </h1>
+                  <div className="w-full">
+                    {component.props.map((prop) => (
+                      <div
+                        key={prop.name}
+                        className="flex flex-col items-start justify-start w-full gap-4"
+                      >
+                        <h2 className="text-lg font-bold mt-2">{prop.name}</h2>
+                        <div className="w-full">
+                          <PropTable items={prop.content} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Credits Section ============================================================================================> */}
+                <div
+                  id="Credits"
+                  className="flex flex-col items-start justify-start w-full gap-4 mt-4"
+                >
+                  <h1 className="text-2xl font-bold w-full border-b border-b-foreground/20 pb-3">
+                    Credits
+                  </h1>
+                  <div className="w-full pl-4">
+                    <ul className="list-disc pl-5 text-foreground">
+                      {component.credits.map((credit, i) => (
+                        <li key={i}>{credit.data}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                {/* Buttons Section ============================================================================================> */}
+                <div className="flex flex-row items-center justify-between flex-nowrap w-full">
+                  <PrevButton href="/" name="Back to Home" />
+                  <NextButton href="/" name="Next Component" />
                 </div>
               </div>
             </>

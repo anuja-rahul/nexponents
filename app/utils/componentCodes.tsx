@@ -1,3 +1,34 @@
+export interface componentCodesProps {
+  demo: string;
+  code: string;
+}
+
+export const rollingTextCode: componentCodesProps = {
+  demo: `
+import RollingText from "../rolling-text";
+
+export default function RollingTextPreview() {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4">
+      <RollingText
+        direction="up"
+        className="text-foreground text-lg md:text-xl lg:text-4xl"
+        lineHeight={0.9}
+        text="Rolling Text Upwards"
+        altText="Rolling Text is cooler"
+      />
+      <RollingText
+        lineHeight={0.9}
+        direction="down"
+        className="text-lg md:text-xl lg:text-3xl text-foreground"
+        text="Rolling Text Down"
+      />
+    </div>
+  );
+}
+
+`,
+  code: `
 "use client";
 
 import clsx from "clsx";
@@ -6,6 +37,7 @@ import { motion } from "framer-motion";
 interface ZoopTextProps {
   text: string;
   altText?: string;
+  downString?: string;
   className?: string;
   direction?: "up" | "down";
   lineHeight?: number;
@@ -14,7 +46,7 @@ interface ZoopTextProps {
 const DURATION = 0.25;
 const STAGGER = 0.025;
 
-export default function ZoopText({
+export default function RollingText({
   text,
   altText = text,
   className,
@@ -85,3 +117,5 @@ export default function ZoopText({
     </motion.div>
   );
 }
+`,
+};

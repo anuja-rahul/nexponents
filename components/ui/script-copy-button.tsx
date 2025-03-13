@@ -79,7 +79,7 @@ export function ScriptCopyBtn({
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={`relative rounded-none bg-slate-900 px-2 py-1 hover:text-background/80 hover:bg-slate-900 duration-300
+                      className={`relative rounded-none bg-slate-900 px-2 py-1 hover:text-white/90 hover:bg-slate-900 duration-300
                         ${
                         packageManager === pm
                           ? "text-white"

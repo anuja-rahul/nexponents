@@ -27,7 +27,7 @@ export default function CodeBlock({ code }: CodeBlockProps) {
     <div className="relative">
       <Button
         onClick={copyToClipboard}
-        className="absolute top-1 bg-slate-950 hover:bg-slate-700/80 duration-300 ml-2 lg:right-3 rounded-full text-background"
+        className="absolute top-1 bg-slate-950 hover:bg-slate-700/80 duration-300 ml-2 lg:right-3 rounded-full text-white"
       >
         {copied ? <CheckIcon /> : <Clipboard />}
       </Button>
