@@ -1,6 +1,7 @@
 import RollingTextPreview from "@/components/previews/rolling-text-preview";
-import { rollingTextCode } from "./componentCodes";
+import { callToActionLinkCode, rollingTextCode } from "./componentCodes";
 import CreditLink from "@/components/credit-link";
+import CallToActionLinkPreview from "@/components/previews/call-to-action-button-preview";
 
 export type ComponentList = typeof componentList;
 export type scrollMenuList = typeof scrollMenuList;
@@ -50,7 +51,11 @@ export const scrollMenuList = [
   },
 ];
 
+//  ComponentList ----------------------------------------------------------------------------------------------------------------------------------------------->
+
 export const componentList = [
+  //  1st ------------------------------------------------------------------------------------------------------------------------->
+
   {
     id: "rolling-text",
     name: "Rolling Text",
@@ -120,4 +125,63 @@ export const componentList = [
       },
     ],
   },
+  //  2nd ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "call-to-action-link",
+    name: "Call to Action Link",
+    description: [
+      "An animated link that displays a call to action.",
+      "can be used to direct users to a specific page or action.",
+    ],
+    preview: () => <CallToActionLinkPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "CallToActionButton" }] },
+        ],
+      },
+    ],
+    demo: callToActionLinkCode.demo,
+    code: callToActionLinkCode.code,
+    props: [
+      {
+        id: "CallToActionButton",
+        name: "Call to Action Button",
+        content: [
+          {
+            name: "text",
+            type: "String",
+            default: "-",
+            description: "The text to display on the link.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "src",
+            type: "String",
+            default: "-",
+            description: "The link to direct the user to.",
+          },
+        ],
+      },
+    ],
+    credits: [
+      {
+        data: (
+          <CreditLink
+            text="Credit to"
+            name="Anuja Gunasinghe"
+            href="https://www.github.com/anuja-rahul"
+          />
+        ),
+      },
+    ],
+  },
+  //  3nd ------------------------------------------------------------------------------------------------------------------------->
 ];

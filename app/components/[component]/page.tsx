@@ -39,6 +39,20 @@ interface ComponentsPageProps {
 export default async function ComponentsPage(props: ComponentsPageProps) {
   const params = await props.params;
   const component = componentList.find((c) => c.id === params.component);
+  const currentIndex = componentList.findIndex(
+    (c) => c.id === params.component
+  );
+
+  let prevComponent = null;
+  let nextComponent = null;
+
+  if (currentIndex > 0) {
+    prevComponent = componentList[currentIndex - 1];
+  }
+
+  if (currentIndex < componentList.length - 1) {
+    nextComponent = componentList[currentIndex + 1];
+  }
 
   return (
     <section className="mt-16 flex flex-col flex-nowrap md:grid md:grid-cols-[280px_1fr] items-start justify-start w-full min-h-screen">
@@ -65,7 +79,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                         {element.new && (
                           <Badge
                             variant={"default"}
-                            className="ml-2 h-4 p-1 rounded-sm items-center text-center text-balance bg-orange-300 text-slate-800"
+                            className="ml-2 h-4 p-1 rounded-sm items-center text-center text-balance hover:bg-orange-300 bg-orange-300 text-slate-800"
                           >
                             New
                           </Badge>
@@ -136,9 +150,12 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                       </div>
                     </ScrollArea>
                   </TabsContent>
-                  <TabsContent value="code" className="mt-4">
-                    <ScrollArea className="h-[350px] w-full rounded-md border border-foreground/20">
-                      <CodeBlock code={component.demo} />
+                  <TabsContent value="code" className="mt-4 overflow-hidden">
+                    <ScrollArea className="h-[350px] w-fit rounded-md border border-foreground/20 overflow-hidden">
+                      <CodeBlock
+                        code={component.demo}
+                        className="md:max-w-[55vw] lg:max-w-[65vw] xl:max-w-[55vw]"
+                      />
                     </ScrollArea>
                   </TabsContent>
                 </Tabs>
@@ -236,6 +253,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                   <div className="w-full">
                     {component.props.map((prop) => (
                       <div
+                        id={prop.id}
                         key={prop.name}
                         className="flex flex-col items-start justify-start w-full gap-4"
                       >
@@ -265,8 +283,22 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                 </div>
                 {/* Buttons Section ============================================================================================> */}
                 <div className="flex flex-row items-center justify-between flex-nowrap w-full">
-                  <PrevButton href="/" name="Back to Home" />
-                  <NextButton href="/" name="Next Component" />
+                  {prevComponent ? (
+                    <PrevButton
+                      href={prevComponent.id}
+                      name={prevComponent.name}
+                    />
+                  ) : (
+                    <PrevButton href="/" name="Back to Home" />
+                  )}
+                  {nextComponent ? (
+                    <NextButton
+                      href={nextComponent.id}
+                      name={nextComponent.name}
+                    />
+                  ) : (
+                    <NextButton href="/" name="Back to Home" />
+                  )}
                 </div>
               </div>
             </>
@@ -277,8 +309,8 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
 
         {component ? (
           <div>
-            <div className="hidden xl:grid">
-              <div className="bg-background px-4 w-[240px] min-h-screen border-l border-l-foreground/10">
+            <div className="hidden xl:grid h-full">
+              <div className="bg-background px-4 w-[240px] h-full border-l border-l-foreground/10">
                 <ScrollArea className="h-screen w-full rounded-md pt-8">
                   {component.navigator.map((section, i) => {
                     return (
