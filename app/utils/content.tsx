@@ -53,6 +53,15 @@ export const componentList = [
       "can be used to add a more dynamic touch to your website.",
     ],
     preview: () => <RollingTextPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "RollingText" }] },
+        ],
+      },
+    ],
     code: `
 import RollingText from "../rolling-text";
 

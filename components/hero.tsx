@@ -33,9 +33,12 @@ export default function Hero() {
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center flex-nowrap gap-4">
           <ActionButton text="Explore Components" src="/components" />
-          <Button variant={"default"} className="rounded-3xl group">
+          <Button
+            variant={"default"}
+            className="rounded-3xl group bg-background text-foreground hover:bg-background/60 border-b border-foreground/40"
+          >
             Get Started{" "}
-            <ChevronRightIcon className="size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 text-white dark:text-black" />
+            <ChevronRightIcon className="size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 text-foreground" />
           </Button>
         </div>
       </section>

@@ -12,6 +12,9 @@ import { componentList, scrollMenuList } from "@/app/utils/content";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Metadata } from "next";
 import Link from "next/link";
+import NavigatorLink from "@/components/navigator-link";
+import { BugIcon, LightbulbIcon, PencilIcon } from "lucide-react";
+import { ScriptCopyBtnComponent } from "@/components/script-copy-button";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -45,7 +48,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                       <Link
                         href={element.path}
                         key={index}
-                        className="text-sm text-foreground/75 font-[500] bg-background hover:bg-foreground/5 duration-300 py-[6px] p-2 w-full rounded-lg"
+                        className="text-sm text-foreground/65 font-[500] bg-background hover:bg-foreground/5 duration-300 py-[6px] p-2 w-full rounded-lg"
                       >
                         {element.name}
                       </Link>
@@ -120,6 +123,42 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                     </ScrollArea>
                   </TabsContent>
                 </Tabs>
+                {/* INSTALLATION SECTION =========================================================================================================================> */}
+                <div
+                  id="Installation"
+                  className="flex flex-col items-start justify-start w-full gap-4 mt-4"
+                >
+                  <h1 className="text-2xl font-bold w-full border-b border-b-foreground/20 pb-3">
+                    Installation
+                  </h1>
+                  <Tabs defaultValue="cli" className="w-full">
+                    <TabsList className="grid grid-cols-2 max-w-32">
+                      <TabsTrigger
+                        className="data-[state=active]:border-b-2 font-[600] pb-2 data-[state=active]:text-foreground text-foreground/70"
+                        value="cli"
+                      >
+                        CLI
+                      </TabsTrigger>
+                      <TabsTrigger
+                        className="data-[state=active]:border-b-2 font-[600] pb-2 data-[state=active]:text-foreground text-foreground/70"
+                        value="manual"
+                      >
+                        Manual
+                      </TabsTrigger>
+                    </TabsList>
+                    <hr className="text-foreground/20 w-full" />
+                    <TabsContent value="cli" className="mt-4 w-full flex flex-col items-start justify-start">
+                      {/* <ScrollArea className="h-[150px] w-full rounded-md border border-foreground/20"> */}
+                        <div className="min-h-[150px] w-full flex items-start justify-start">
+                          <ScriptCopyBtnComponent component={component.id} />
+                        </div>
+                      {/* </ScrollArea> */}
+                    </TabsContent>
+                    <TabsContent value="manual" className="mt-4">
+                      <ScrollArea className="h-[350px] w-full rounded-md border border-foreground/20"></ScrollArea>
+                    </TabsContent>
+                  </Tabs>
+                </div>
               </div>
             </>
           ) : (
@@ -131,7 +170,80 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
           <div>
             <div className="hidden xl:grid">
               <div className="bg-background px-4 w-[240px] min-h-screen border-l border-l-foreground/10">
-                navigator
+                <ScrollArea className="h-screen w-full rounded-md pt-8">
+                  {component.navigator.map((section, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className="gap-1 flex flex-col items-start justify-start w-full mb-5"
+                      >
+                        <h1 className="font-[500] text-foreground px-2 m-0 mb-2 text-base tracking-tight">
+                          {section.title}
+                        </h1>
+                        <div className="gap-[2px] flex flex-col items-start justify-start w-full">
+                          {section.content.map((element, index) => {
+                            return (
+                              <div key={element.name}>
+                                <Link
+                                  href={`#${element.name}`}
+                                  key={element.name}
+                                  className="text-sm text-foreground/50 font-[500] bg-background hover:text-foreground duration-300 py-[6px] p-2 w-full rounded-lg"
+                                >
+                                  {element.name}
+                                </Link>
+                                {element.subtitles &&
+                                  element.subtitles.length > 0 && (
+                                    <div
+                                      className="gap-[2px] flex flex-col items-start justify-start w-full pl-3"
+                                      key={element.name + index}
+                                    >
+                                      {element.subtitles.map((subtitle) => (
+                                        <Link
+                                          href={`#${subtitle.name}`}
+                                          key={subtitle.name}
+                                          className="text-sm text-foreground/50 font-[500] bg-background hover:text-foreground duration-300 py-[6px] p-2 w-full rounded-lg"
+                                        >
+                                          {subtitle.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                  <div className="gap-1 flex flex-col items-start justify-start w-full mb-5">
+                    <h1 className="font-[500] text-foreground px-2 m-0 mb-2 text-base tracking-tight">
+                      Contribute
+                    </h1>
+                    <div className="gap-2 flex flex-col items-start justify-start w-full px-2">
+                      <NavigatorLink
+                        href="#"
+                        text="Report an issue"
+                        icon={
+                          <BugIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
+                        }
+                      />
+                      <NavigatorLink
+                        href="#"
+                        text="Request a feature"
+                        icon={
+                          <LightbulbIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
+                        }
+                      />
+                      <NavigatorLink
+                        href="#"
+                        text="Edit this page"
+                        icon={
+                          <PencilIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
+                        }
+                      />
+                    </div>
+                  </div>
+                </ScrollArea>
               </div>
             </div>
           </div>
