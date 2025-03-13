@@ -8,9 +8,10 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { componentList } from "@/app/utils/content";
+import { componentList, scrollMenuList } from "@/app/utils/content";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -28,7 +29,33 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
   return (
     <section className="mt-16 flex flex-col flex-nowrap md:grid md:grid-cols-[280px_1fr] items-start justify-start w-full min-h-screen">
       <div className="bg-background px-4 hidden md:flex w-[250px] lg:w-[280px] min-h-screen">
-        component scrollmenu
+        <ScrollArea className="h-screen w-full rounded-md pt-8">
+          {scrollMenuList.map((section, i) => {
+            return (
+              <div
+                key={i}
+                className="gap-1 pl-6 flex flex-col items-start justify-start w-full mb-5"
+              >
+                <h1 className="font-[600] text-foreground px-2 m-0">
+                  {section.name}
+                </h1>
+                <div className="gap-[2px] flex flex-col items-start justify-start w-full">
+                  {section.elements.map((element, index) => {
+                    return (
+                      <Link
+                        href={element.path}
+                        key={index}
+                        className="text-sm text-foreground/75 font-[500] bg-background hover:bg-foreground/5 duration-300 py-[6px] p-2 w-full rounded-lg"
+                      >
+                        {element.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </ScrollArea>
       </div>
 
       <div className="bg-background lg:flex-1 w-full flex-col flex-nowrap xl:flex-none xl:flex xl:flex-row min-h-screen border border-foreground/10">
