@@ -9,6 +9,7 @@
       {
         "aria-valid-attr-value": "off"
       }
-    ]
+    ],
+    "compat-api/css": "off"
   }
 }

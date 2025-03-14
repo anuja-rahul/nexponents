@@ -1,0 +1,22 @@
+/* page.module.css */
+
+.main {
+  .body,
+  .mask {
+    span {
+      color: #ec4e39;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  .mask {
+    position: absolute;
+    -webkit-mask-image: url("../../public/mask.svg");
+    mask-image: url("../../public/mask.svg");
+    background: #ec4e39;
+    mask-repeat: no-repeat;
+    mask-size: 50px;
+    color: black;
+  }
+}

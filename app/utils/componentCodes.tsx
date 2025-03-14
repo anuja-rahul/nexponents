@@ -37,7 +37,7 @@ export default function RollingTextPreview() {
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
-interface ZoopTextProps {
+interface RollingTextProps {
   text: string;
   altText?: string;
   downString?: string;
@@ -55,7 +55,7 @@ export default function RollingText({
   className,
   direction = "up",
   lineHeight = 0.8,
-}: ZoopTextProps) {
+}: RollingTextProps) {
   return (
     <motion.div
       className={clsx(
@@ -275,6 +275,163 @@ export default function MagneticLinks({
 
   `,
       type: "tsx",
+    },
+  ],
+};
+
+export const maskCursorCode: componentCodesProps = {
+  demo: `import MaskCursor from "../mask-cursor/mask-cursor";
+  
+  export default function MaskCursorPreview() {
+    return (
+      <MaskCursor
+        maskText="Unlock the power of seamless UI components with Nexponents. Built for
+            Next.js, our library ensures speed, flexibility, and ease of use—so
+            you can focus on building, not styling."
+        bodyText="Designed with ShadCN UI, Tailwind CSS, React, and Framer Motion,
+            Nexponents offers a smooth and modern experience, bringing effortless
+            customization to your Next.js projects."
+      />
+    );
+  }
+  `,
+  code: [
+    {
+      sourceCode: `"use client";
+
+import useMousePosition from "@/app/utils/useMousePosition";
+import clsx from "clsx";
+import styles from "./page.module.css";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+
+interface MaskCursorProps {
+  maskText: string;
+  bodyText: string;
+  className?: string;
+  cursorDefaultSize?: number;
+  cursorHoverSize?: number;
+}
+
+export default function MaskCursor({
+  maskText,
+  bodyText,
+  className,
+  cursorDefaultSize = 40,
+  cursorHoverSize = 150,
+}: MaskCursorProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { x, y } = useMousePosition(containerRef);
+  const size = isHovered ? cursorHoverSize : cursorDefaultSize;
+
+  return (
+    <main
+      ref={containerRef}
+      className={clsx(
+        styles.main,
+        className,
+        "relative flex flex-col items-center justify-center overflow-hidden h-[55vh]"
+      )}
+    >
+      <motion.div
+        className={clsx(
+          styles.mask,
+          "flex flex-col items-center justify-center w-full h-full text-center text-[#afa18f] cursor-default"
+        )}
+        animate={{
+          WebkitMaskPosition: \`\${x - size / 2}px \${y - size / 2}px\`,
+          WebkitMaskSize: \`\${size}px\`,
+        }}
+        transition={{ type: "tween", ease: "backOut" }}
+      >
+        <p
+          className="text-2xl md:text-3xl lg:text-4xl px-4 "
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {maskText}
+        </p>
+      </motion.div>
+      <div
+        className={clsx(
+          styles.body,
+          "flex flex-col items-center justify-center w-full h-full text-center text-[#afa18f] cursor-default"
+        )}
+      >
+        <p className="text-2xl md:text-3xl lg:text-4xl px-4">{bodyText}</p>
+      </div>
+    </main>
+  );
+}
+  `,
+      type: "tsx",
+      key: "MaskCursorSource",
+    },
+    {
+      sourceCode: `/* page.module.css */
+
+.main {
+  .body,
+  .mask {
+    span {
+      color: #ec4e39;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  .mask {
+    position: absolute;
+    -webkit-mask-image: url("../../public/mask.svg");
+    mask-image: url("../../public/mask.svg");
+    background: #ec4e39;
+    mask-repeat: no-repeat;
+    mask-size: 50px;
+    color: black;
+  }
+}
+`,
+      type: "css",
+      key: "MaskCursorCSS",
+    },
+    {
+      sourceCode: `// useMousePosition.ts
+
+import { useEffect, useState, useCallback } from "react";
+
+export default function useMousePosition(
+  containerRef?: React.RefObject<HTMLElement | null>
+) {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const updateMousePosition = useCallback(
+    (e: MouseEvent) => {
+      if (containerRef?.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      } else {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      }
+    },
+    [containerRef]
+  );
+
+  useEffect(() => {
+    window.addEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, [updateMousePosition]);
+
+  return mousePosition;
+}
+`,
+      type: "ts",
+      key: "UseMousePosition",
     },
   ],
 };

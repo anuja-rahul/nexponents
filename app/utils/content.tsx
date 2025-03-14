@@ -1,8 +1,14 @@
 import RollingTextPreview from "@/components/previews/rolling-text-preview";
-import { callToActionLinkCode, magneticLinkCode, rollingTextCode } from "./componentCodes";
+import {
+  callToActionLinkCode,
+  magneticLinkCode,
+  maskCursorCode,
+  rollingTextCode,
+} from "./componentCodes";
 import CreditLink from "@/components/credit-link";
 import CallToActionLinkPreview from "@/components/previews/call-to-action-button-preview";
 import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
+import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
 
 export type ComponentList = typeof componentList;
 export type scrollMenuList = typeof scrollMenuList;
@@ -52,6 +58,12 @@ export const scrollMenuList = [
         id: "magnetic-link",
         name: "Magnetic Link",
         path: "/components/magnetic-link",
+        new: true,
+      },
+      {
+        id: "mask-cursor",
+        name: "Mask Cursor",
+        path: "/components/mask-cursor",
         new: true,
       },
     ],
@@ -246,4 +258,65 @@ export const componentList = [
     ],
   },
   //  4th ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "mask-cursor",
+    name: "Mask Cursor",
+    description: ["A cursor that masks the text on hover."],
+    preview: () => <MaskCursorPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "MaskCursor" }] },
+        ],
+      },
+    ],
+    demo: maskCursorCode.demo,
+    code: maskCursorCode.code,
+    props: [
+      {
+        id: "MaskCursor",
+        name: "Mask Cursor",
+        content: [
+          {
+            name: "maskText",
+            type: "String",
+            default: "-",
+            description: "The text to mask.",
+          },
+          {
+            name: "bodyText",
+            type: "String",
+            default: "-",
+            description: "The text to display.",
+          },
+          {
+            name: "cursorDefaultSize",
+            type: "Number",
+            default: "40",
+            description: "The default size of the cursor.",
+          },
+          {
+            name: "cursorHoverSize",
+            type: "Number",
+            default: "150",
+            description: "The size of the cursor on hover.",
+          },
+        ],
+      },
+    ],
+    credits: [
+      {
+        data: (
+          <CreditLink
+            text="Credit to"
+            name="Anuja Gunasinghe"
+            href="https://www.github.com/anuja-rahul"
+          />
+        ),
+      },
+    ],
+  },
+  //  5th ------------------------------------------------------------------------------------------------------------------------->
 ];

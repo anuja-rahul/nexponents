@@ -5,13 +5,17 @@ import Navbar from "./navbar";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Badge } from "../ui/badge";
 
 export default function Header() {
   return (
     <>
       <header className="fixed backdrop-blur-[2px] top-0 w-screen bg-transparent min-h-20 md:min-h-16 flex flex-row flex-nowrap items-center justify-between px-8 z-50 border-b border-foreground/20">
         <div className="flex-row flex-nowrap gap-4 hidden md:flex">
-          <Link href={"/"}>
+          <Link
+            href={"/"}
+            className="flex flex-row flex-nowrap items-center justify-center font-bold tracking-tight gap-2 group"
+          >
             <Image
               src={"/nexponent.webp"}
               alt="logo"
@@ -19,18 +23,31 @@ export default function Header() {
               width={30}
               height={30}
             />
+            Nexponent UI
+            <Badge
+              variant={"default"}
+              className="h-4 p-2 rounded-sm items-center text-center text-balance duration-300 group-hover:bg-foreground/5 hover:bg-foreground/5 bg-foreground/10 text-foreground"
+            >
+              Preview
+            </Badge>
           </Link>
           <Link
             href="/docs"
-            className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px]"
+            className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px] flex-nowrap items-center justify-center"
           >
             Docs
           </Link>
           <Link
             href="/components"
-            className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px]"
+            className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px] flex-row flex-nowrap items-center justify-center"
           >
             Components
+            <Badge
+              variant={"default"}
+              className="ml-2 h-4 p-1 rounded-sm items-center text-center text-balance hover:bg-orange-300 bg-orange-300 text-slate-800"
+            >
+              New
+            </Badge>
           </Link>
         </div>
         {/* <div>NavBar</div> */}
