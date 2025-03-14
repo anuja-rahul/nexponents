@@ -1,7 +1,8 @@
 import RollingTextPreview from "@/components/previews/rolling-text-preview";
-import { callToActionLinkCode, rollingTextCode } from "./componentCodes";
+import { callToActionLinkCode, magneticLinkCode, rollingTextCode } from "./componentCodes";
 import CreditLink from "@/components/credit-link";
 import CallToActionLinkPreview from "@/components/previews/call-to-action-button-preview";
+import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
 
 export type ComponentList = typeof componentList;
 export type scrollMenuList = typeof scrollMenuList;
@@ -45,6 +46,12 @@ export const scrollMenuList = [
         id: "call-to-action-link",
         name: "Call to Action Link",
         path: "/components/call-to-action-link",
+        new: true,
+      },
+      {
+        id: "magnetic-link",
+        name: "Magnetic Link",
+        path: "/components/magnetic-link",
         new: true,
       },
     ],
@@ -183,5 +190,60 @@ export const componentList = [
       },
     ],
   },
-  //  3nd ------------------------------------------------------------------------------------------------------------------------->
+  //  3rd ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "magnetic-link",
+    name: "Magnetic Links",
+    description: ["A link icon animated to have a magnetic effect on hover."],
+    preview: () => <MagneticLinkPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "MagneticLink" }] },
+        ],
+      },
+    ],
+    demo: magneticLinkCode.demo,
+    code: magneticLinkCode.code,
+    props: [
+      {
+        id: "MagneticLink",
+        name: "Magnatic Link",
+        content: [
+          {
+            name: "children",
+            type: "React.ReactNode",
+            default: "-",
+            description: "The content to display on the link.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "href",
+            type: "String",
+            default: "-",
+            description: "The link to direct the user to.",
+          },
+        ],
+      },
+    ],
+    credits: [
+      {
+        data: (
+          <CreditLink
+            text="Credit to"
+            name="Anuja Gunasinghe"
+            href="https://www.github.com/anuja-rahul"
+          />
+        ),
+      },
+    ],
+  },
+  //  4th ------------------------------------------------------------------------------------------------------------------------->
 ];

@@ -181,3 +181,83 @@ export { CallToActionLink };
 
 `,
 };
+
+export const magneticLinkCode: componentCodesProps = {
+  demo: `
+import { FacebookIcon, GithubIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
+import MagneticLinks from "../magnetic-links";
+
+export default function MagneticLinkPreview() {
+  return (
+    <div className="flex flex-row items-center justify-center flex-wrap w-full h-full gap-3 md:gap-6">
+      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+        <FacebookIcon />
+      </MagneticLinks>
+      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+        <TwitterIcon />
+      </MagneticLinks>
+      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+        <YoutubeIcon />
+      </MagneticLinks>
+      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+        <GithubIcon />
+      </MagneticLinks>
+    </div>
+  );
+}
+
+  `,
+  code:
+`"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useRef, useState } from "react";
+
+interface MagneticLinkProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}
+
+export default function MagneticLinks({
+  children,
+  href,
+  className,
+}: MagneticLinkProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const element = ref.current;
+    if (!element) return;
+
+    const { clientX, clientY } = e;
+    const { width, height, left, top } = element.getBoundingClientRect();
+    const x = clientX - (left + width / 2);
+    const y = clientY - (top + height / 2);
+    setPosition({ x, y });
+  };
+
+  const mouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const { x, y } = position;
+
+  return (
+    <motion.div
+      className={className}
+      ref={ref}
+      onMouseMove={mouseMove}
+      onMouseLeave={mouseLeave}
+      animate={{ x, y }}
+      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+    >
+      <Link href={href} className="w-full h-full">{children}</Link>
+    </motion.div>
+  );
+}
+
+  `,
+};
