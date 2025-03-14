@@ -1,6 +1,6 @@
 export interface componentCodesProps {
   demo: string;
-  code: string;
+  code: { sourceCode: string; type: string; key: string }[];
 }
 
 export const rollingTextCode: componentCodesProps = {
@@ -28,7 +28,10 @@ export default function RollingTextPreview() {
 }
 
 `,
-  code: `
+  code: [
+    {
+      key: "RollingTextSource",
+      sourceCode: `
 "use client";
 
 import clsx from "clsx";
@@ -118,6 +121,9 @@ export default function RollingText({
   );
 }
 `,
+      type: "tsx",
+    },
+  ],
 };
 
 export const callToActionLinkCode: componentCodesProps = {
@@ -138,7 +144,10 @@ export default function CallToActionLinkPreview() {
 
 
 `,
-  code: `
+  code: [
+    {
+      key: "CallToActionLinkSource",
+      sourceCode: `
 import { ChevronRightIcon, RocketIcon, SparklesIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -180,6 +189,9 @@ function CallToActionLink({ text, src, className }: ActionLinkProps) {
 export { CallToActionLink };
 
 `,
+      type: "tsx",
+    },
+  ],
 };
 
 export const magneticLinkCode: componentCodesProps = {
@@ -207,8 +219,10 @@ export default function MagneticLinkPreview() {
 }
 
   `,
-  code:
-`"use client";
+  code: [
+    {
+      key: "MagneticLinkKey",
+      sourceCode: `"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -260,4 +274,7 @@ export default function MagneticLinks({
 }
 
   `,
+      type: "tsx",
+    },
+  ],
 };

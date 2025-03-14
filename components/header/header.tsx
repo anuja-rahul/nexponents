@@ -4,13 +4,22 @@ import { ModeToggle } from "../mode-toggle";
 import Navbar from "./navbar";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
     <>
       <header className="fixed backdrop-blur-[2px] top-0 w-screen bg-transparent min-h-20 md:min-h-16 flex flex-row flex-nowrap items-center justify-between px-8 z-50 border-b border-foreground/20">
         <div className="flex-row flex-nowrap gap-4 hidden md:flex">
-          <div>Logo</div>
+          <Link href={"/"}>
+            <Image
+              src={"/nexponent.webp"}
+              alt="logo"
+              className="rounded-full w-[30px] aspect-square"
+              width={30}
+              height={30}
+            />
+          </Link>
           <Link
             href="/docs"
             className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px]"

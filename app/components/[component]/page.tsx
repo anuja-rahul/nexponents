@@ -221,8 +221,16 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                               className="text-foreground m-1 bg-foreground/5"
                             />
                             <TimelineLine done className="bg-foreground/10" />
-                            <TimelineContent className="w-full mt-6">
-                              <CodeBlock code={component.code} />
+                            <TimelineContent className="w-full mt-6 gap-4">
+                              {/* <CodeBlock code={component.code} /> */}
+                              {component.code.map((data) => (
+                                <CodeBlock
+                                  type={data.type}
+                                  key={data.key}
+                                  code={data.sourceCode}
+                                  className="mb-4"
+                                />
+                              ))}
                             </TimelineContent>
                           </TimelineItem>
                           <TimelineItem status="done" className="w-full">

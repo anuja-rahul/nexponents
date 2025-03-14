@@ -10,9 +10,14 @@ import clsx from "clsx";
 interface CodeBlockProps {
   code: string;
   className?: string;
+  type?: string;
 }
 
-export default function CodeBlock({ code, className }: CodeBlockProps) {
+export default function CodeBlock({
+  code,
+  className,
+  type = "tsx",
+}: CodeBlockProps) {
   const [copied, setCopied] = useState(false); // State to track copied status
 
   const copyToClipboard = async () => {
@@ -39,7 +44,7 @@ export default function CodeBlock({ code, className }: CodeBlockProps) {
         {copied ? <CheckIcon /> : <Clipboard />}
       </Button>
       <SyntaxHighlighter
-        language="tsx"
+        language={type}
         style={atomDark}
         customStyle={{
           margin: 0,
