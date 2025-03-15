@@ -17,6 +17,7 @@ export default function Installation() {
       <div className="bg-background lg:flex-1 w-full flex-col flex-nowrap xl:flex-none xl:flex xl:flex-row min-h-screen border border-foreground/10">
         <div className="bg-background px-4 mb-4 xl:flex-grow min-h-screen">
           <NotFoundSection className="pt-4" />
+          {/* remember to use a grid for frameworks */}
         </div>
 
         <Navigator navigator={InstallationNavigator} />

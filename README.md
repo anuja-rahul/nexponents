@@ -1,5 +1,7 @@
 # Nexponents
 
+[![wakatime](https://wakatime.com/badge/user/c245bc64-86c4-4477-8e51-6ba957d4a58c/project/75047944-264c-4239-81a2-259b7ee42b5e.svg)](https://wakatime.com/badge/user/c245bc64-86c4-4477-8e51-6ba957d4a58c/project/75047944-264c-4239-81a2-259b7ee42b5e)
+
 Nexponents - A sleek and modular Next.js UI component library designed for efficiency and scalability. Build beautiful, responsive interfaces with ease using reusable and customizable React components optimized for Next.js.
 
 ## Requirements

@@ -20,7 +20,7 @@ import Navigator from "@/components/navigator";
 import DynamicBreadCrumbs from "@/components/dynamic-breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Components",
+  title: {default: "Components", template: "%s | Components"},
   description: "Explore the components that make up the Nexponent ui.",
 };
 
