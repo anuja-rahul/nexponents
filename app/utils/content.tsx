@@ -16,6 +16,16 @@ export type scrollMenuList = typeof scrollMenuList;
 export type IntroductionNavigator = typeof IntroductionNavigator;
 export type InstallationNavigator = typeof InstallationNavigator;
 
+const defaultCredits = {
+  data: (
+    <CreditLink
+      text="Credit to"
+      name="Anuja Gunasinghe"
+      href="https://www.github.com/anuja-rahul"
+    />
+  ),
+};
+
 export const IntroductionNavigator = [
   {
     title: "On This Page",
@@ -28,7 +38,10 @@ export const InstallationNavigator = [
     title: "On This Page",
     content: [
       { name: "Frameworks", subtitles: [{ name: "Next.js" }] },
-      { name: "Languages", subtitles: [{ name: "Typescript" }, {name: "Javascript"}] },
+      {
+        name: "Languages",
+        subtitles: [{ name: "Typescript" }, { name: "Javascript" }],
+      },
     ],
   },
 ];
@@ -155,15 +168,7 @@ export const componentList = [
       },
     ],
     credits: [
-      {
-        data: (
-          <CreditLink
-            text="Credit to"
-            name="Anuja Gunasinghe"
-            href="https://www.github.com/anuja-rahul"
-          />
-        ),
-      },
+      defaultCredits
     ],
   },
   //  2nd ------------------------------------------------------------------------------------------------------------------------->
@@ -213,15 +218,7 @@ export const componentList = [
       },
     ],
     credits: [
-      {
-        data: (
-          <CreditLink
-            text="Credit to"
-            name="Anuja Gunasinghe"
-            href="https://www.github.com/anuja-rahul"
-          />
-        ),
-      },
+      defaultCredits
     ],
   },
   //  3rd ------------------------------------------------------------------------------------------------------------------------->
@@ -268,15 +265,7 @@ export const componentList = [
       },
     ],
     credits: [
-      {
-        data: (
-          <CreditLink
-            text="Credit to"
-            name="Anuja Gunasinghe"
-            href="https://www.github.com/anuja-rahul"
-          />
-        ),
-      },
+      defaultCredits
     ],
   },
   //  4th ------------------------------------------------------------------------------------------------------------------------->
@@ -329,15 +318,7 @@ export const componentList = [
       },
     ],
     credits: [
-      {
-        data: (
-          <CreditLink
-            text="Credit to"
-            name="Anuja Gunasinghe"
-            href="https://www.github.com/anuja-rahul"
-          />
-        ),
-      },
+      defaultCredits
     ],
   },
   //  5th ------------------------------------------------------------------------------------------------------------------------->
