@@ -24,9 +24,9 @@ export default function Navigator({ navigator }: NavigatorProps) {
                 <div
                   key={i}
                   id={section.title} // Set an ID to match with the link
-                  className="gap-1 flex flex-col items-start justify-start w-full mb-5"
+                  className="gap-3 flex flex-col items-start justify-start w-full mb-5"
                 >
-                  <h1 className="font-[500] text-foreground px-2 m-0 mb-2 text-base tracking-tight">
+                  <h1 className="font-[500] text-foreground px-2 m-0 mb-3 text-base tracking-tight">
                     {section.title}
                   </h1>
                   <div className="gap-[2px] flex flex-col items-start justify-start w-full">
@@ -42,14 +42,14 @@ export default function Navigator({ navigator }: NavigatorProps) {
                           {element.subtitles &&
                             element.subtitles.length > 0 && (
                               <div
-                                className="gap-[2px] flex flex-col items-start justify-start w-full pl-3"
+                                className="gap-[2px] flex flex-col items-start w-full pl-4 justify-center"
                                 key={element.name + index}
                               >
                                 {element.subtitles.map((subtitle) => (
                                   <Link
                                     href={`#${subtitle.name}`}
                                     key={subtitle.name}
-                                    className={`text-sm text-foreground/70 font-[500] bg-background hover:text-foreground duration-300 py-[6px] p-2 w-full rounded-lg `}
+                                    className={`text-sm text-foreground/70 font-[500] bg-background hover:text-foreground duration-300 py-[4px] p-2 w-full rounded-lg `}
                                   >
                                     {subtitle.name}
                                   </Link>

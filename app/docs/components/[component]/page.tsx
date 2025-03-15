@@ -1,12 +1,5 @@
 import CodeBlock from "@/components/codeblock";
 import NotFoundSection from "@/components/not-found";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { componentList } from "@/app/utils/content";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
@@ -24,6 +17,7 @@ import PropTable from "@/components/props-table";
 import { NextButton, PrevButton } from "@/components/move-buttons";
 import ScrollMenu from "@/components/scroll-menu";
 import Navigator from "@/components/navigator";
+import DynamicBreadCrumbs from "@/components/dynamic-breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -66,24 +60,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
             <>
               <div className="w-full px-4 bg-background h-auto flex flex-col items-start justify-start gap-4">
                 <div className="flex flex-row items-start justify-start mt-6">
-                  <Breadcrumb>
-                    <BreadcrumbList>
-                      <BreadcrumbItem>
-                        <BreadcrumbLink href="/components">
-                          Components
-                        </BreadcrumbLink>
-                      </BreadcrumbItem>
-                      <BreadcrumbSeparator />
-                      <BreadcrumbItem>
-                        <BreadcrumbLink
-                          href={`/components/${component.id}`}
-                          className="text-foreground/80 font-[600]"
-                        >
-                          {component.name}
-                        </BreadcrumbLink>
-                      </BreadcrumbItem>
-                    </BreadcrumbList>
-                  </Breadcrumb>
+                  <DynamicBreadCrumbs name={component.name} />
                 </div>
                 <h1 className="text-4xl font-bold">{component.name}</h1>
                 <div>
@@ -277,7 +254,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
               </div>
             </>
           ) : (
-            <NotFoundSection />
+            <NotFoundSection className="pt-4"/>
           )}
         </div>
 

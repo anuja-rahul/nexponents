@@ -28,7 +28,7 @@ export default function ScrollMenu() {
                     href={element.path}
                     key={index}
                     className={clsx(
-                      "text-sm text-foreground/75 font-[500] bg-background hover:bg-foreground/10 duration-300 py-[6px] p-2 w-full rounded-lg",
+                      "text-sm text-foreground/75 font-[500] bg-background hover:bg-foreground/10 duration-200 py-[6px] p-2 w-full rounded-lg",
                       isActive && "bg-foreground/10 active"
                     )}
                   >

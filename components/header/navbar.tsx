@@ -4,6 +4,7 @@ import Button from "./button/button";
 import styles from "./style.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import NavItems from "./nav-items/nav-items";
+import clsx from "clsx";
 
 const variants = {
   open: {
@@ -29,11 +30,21 @@ const variants = {
   },
 };
 
-export default function Navbar() {
+interface NavBarProps {
+  className?: string;
+}
+
+export default function Navbar({ className }: NavBarProps) {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className={`${styles.header} md:hidden`}>
+    <div
+      className={clsx(
+        styles.header,
+        "absolute top-[25px] right-[25px] z-[9999]",
+        className
+      )}
+    >
       <motion.div
         variants={variants}
         animate={isActive ? "open" : "closed"}

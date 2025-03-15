@@ -9,7 +9,7 @@ export const navLinks = [
   },
   {
     title: "Components",
-    href: "/components",
+    href: "docs/components",
   },
   {
     title: "Docs",

@@ -9,9 +9,29 @@ import CreditLink from "@/components/credit-link";
 import CallToActionLinkPreview from "@/components/previews/call-to-action-button-preview";
 import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
 import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
+// import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
 export type scrollMenuList = typeof scrollMenuList;
+export type IntroductionNavigator = typeof IntroductionNavigator;
+export type InstallationNavigator = typeof InstallationNavigator;
+
+export const IntroductionNavigator = [
+  {
+    title: "On This Page",
+    content: [{ name: "Goal", subtitles: [] }],
+  },
+];
+
+export const InstallationNavigator = [
+  {
+    title: "On This Page",
+    content: [
+      { name: "Frameworks", subtitles: [{ name: "Next.js" }] },
+      { name: "Languages", subtitles: [{ name: "Typescript" }, {name: "Javascript"}] },
+    ],
+  },
+];
 
 export const scrollMenuList = [
   {
@@ -21,13 +41,13 @@ export const scrollMenuList = [
       {
         id: "introduction",
         name: "Introduction",
-        path: "/docs/components/introduction",
+        path: "/docs/introduction",
         new: false,
       },
       {
         id: "installation",
         name: "Installation",
-        path: "/docs/components/installation",
+        path: "/docs/installation",
         new: false,
       },
     ],
@@ -83,6 +103,8 @@ export const componentList = [
       "can be used to add a more dynamic touch to your website.",
     ],
     preview: () => <RollingTextPreview />,
+    // preview: () => <Navbar className="absolute top-7 right-7 z-1" />,
+
     navigator: [
       {
         title: "On This Page",

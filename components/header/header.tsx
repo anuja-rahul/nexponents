@@ -38,7 +38,7 @@ export default function Header() {
             Docs
           </Link>
           <Link
-            href="/components"
+            href="/docs/components"
             className="lg:flex hidden opacity-80 hover:opacity-100 duration-300 hover:translate-y-[-1px] flex-row flex-nowrap items-center justify-center"
           >
             Components
@@ -74,7 +74,7 @@ export default function Header() {
           <TwitterIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
           <ModeToggle className="border-none bg-transparent" />
         </div>
-        <Navbar />
+        <Navbar className="md:hidden" />
       </header>
     </>
   );
