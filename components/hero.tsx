@@ -32,7 +32,7 @@ export default function Hero() {
           and <span className="font-bold">Motion</span>
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center flex-nowrap gap-4">
-          <ActionButton text="Explore Components" src="/components" />
+          <ActionButton text="Explore Components" src="docs/components" />
           <Button
             variant={"default"}
             className="rounded-3xl group bg-background text-foreground hover:bg-background/60 border-b border-foreground/40"

@@ -176,3 +176,7 @@
 * {
   scroll-behavior: smooth !important;
 }
+
+.active {
+  color: var(--foreground);
+}

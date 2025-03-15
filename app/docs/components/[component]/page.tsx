@@ -8,12 +8,9 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { componentList, scrollMenuList } from "@/app/utils/content";
+import { componentList } from "@/app/utils/content";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { Metadata } from "next";
-import Link from "next/link";
-import NavigatorLink from "@/components/navigator-link";
-import { BugIcon, LightbulbIcon, PencilIcon } from "lucide-react";
 import { ScriptCopyBtnComponent } from "@/components/script-copy-button";
 import {
   Timeline,
@@ -25,7 +22,8 @@ import {
 } from "@/components/ui/timeline";
 import PropTable from "@/components/props-table";
 import { NextButton, PrevButton } from "@/components/move-buttons";
-import { Badge } from "@/components/ui/badge";
+import ScrollMenu from "@/components/scroll-menu";
+import Navigator from "@/components/navigator";
 
 export const metadata: Metadata = {
   title: "Components",
@@ -56,41 +54,9 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
 
   return (
     <section className="mt-16 flex flex-col flex-nowrap md:grid md:grid-cols-[280px_1fr] items-start justify-start w-full min-h-screen">
-      <div className="bg-background px-4 hidden md:flex w-[250px] lg:w-[280px] min-h-screen">
+      <div className="bg-background px-4 hidden md:flex w-[250px] lg:w-[280px] min-h-screen sticky left-0 top-12">
         <ScrollArea className="h-screen w-full rounded-md pt-8">
-          {scrollMenuList.map((section, i) => {
-            return (
-              <div
-                key={i}
-                className="gap-1 pl-6 flex flex-col items-start justify-start w-full mb-5"
-              >
-                <h1 className="font-[600] text-foreground px-2 m-0">
-                  {section.name}
-                </h1>
-                <div className="gap-[2px] flex flex-col items-start justify-start w-full">
-                  {section.elements.map((element, index) => {
-                    return (
-                      <Link
-                        href={element.path}
-                        key={index}
-                        className="text-sm text-foreground/65 font-[500] bg-background hover:bg-foreground/5 duration-300 py-[6px] p-2 w-full rounded-lg"
-                      >
-                        {element.name}
-                        {element.new && (
-                          <Badge
-                            variant={"default"}
-                            className="ml-2 h-4 p-1 rounded-sm items-center text-center text-balance hover:bg-orange-300 bg-orange-300 text-slate-800"
-                          >
-                            New
-                          </Badge>
-                        )}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+          <ScrollMenu />
         </ScrollArea>
       </div>
 
@@ -315,88 +281,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
           )}
         </div>
 
-        {component ? (
-          <div>
-            <div className="hidden xl:grid h-full">
-              <div className="bg-background px-4 w-[240px] h-full border-l border-l-foreground/10">
-                <ScrollArea className="h-screen w-full rounded-md pt-8">
-                  {component.navigator.map((section, i) => {
-                    return (
-                      <div
-                        key={i}
-                        className="gap-1 flex flex-col items-start justify-start w-full mb-5"
-                      >
-                        <h1 className="font-[500] text-foreground px-2 m-0 mb-2 text-base tracking-tight">
-                          {section.title}
-                        </h1>
-                        <div className="gap-[2px] flex flex-col items-start justify-start w-full">
-                          {section.content.map((element, index) => {
-                            return (
-                              <div key={element.name}>
-                                <Link
-                                  href={`#${element.name}`}
-                                  key={element.name}
-                                  className="text-sm text-foreground/50 font-[500] bg-background hover:text-foreground duration-300 py-[6px] p-2 w-full rounded-lg"
-                                >
-                                  {element.name}
-                                </Link>
-                                {element.subtitles &&
-                                  element.subtitles.length > 0 && (
-                                    <div
-                                      className="gap-[2px] flex flex-col items-start justify-start w-full pl-3"
-                                      key={element.name + index}
-                                    >
-                                      {element.subtitles.map((subtitle) => (
-                                        <Link
-                                          href={`#${subtitle.name}`}
-                                          key={subtitle.name}
-                                          className="text-sm text-foreground/50 font-[500] bg-background hover:text-foreground duration-300 py-[6px] p-2 w-full rounded-lg"
-                                        >
-                                          {subtitle.name}
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  )}
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div className="gap-1 flex flex-col items-start justify-start w-full mb-5">
-                    <h1 className="font-[500] text-foreground px-2 m-0 mb-2 text-base tracking-tight">
-                      Contribute
-                    </h1>
-                    <div className="gap-2 flex flex-col items-start justify-start w-full px-2">
-                      <NavigatorLink
-                        href="#"
-                        text="Report an issue"
-                        icon={
-                          <BugIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
-                        }
-                      />
-                      <NavigatorLink
-                        href="#"
-                        text="Request a feature"
-                        icon={
-                          <LightbulbIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
-                        }
-                      />
-                      <NavigatorLink
-                        href="#"
-                        text="Edit this page"
-                        icon={
-                          <PencilIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
-                        }
-                      />
-                    </div>
-                  </div>
-                </ScrollArea>
-              </div>
-            </div>
-          </div>
-        ) : null}
+        {component ? <Navigator navigator={component.navigator} /> : null}
       </div>
     </section>
   );

@@ -21,13 +21,13 @@ export const scrollMenuList = [
       {
         id: "introduction",
         name: "Introduction",
-        path: "/components/introduction",
+        path: "/docs/components/introduction",
         new: false,
       },
       {
         id: "installation",
         name: "Installation",
-        path: "/components/installation",
+        path: "/docs/components/installation",
         new: false,
       },
     ],
@@ -39,7 +39,7 @@ export const scrollMenuList = [
       {
         id: "rolling-text",
         name: "Rolling Text",
-        path: "/components/rolling-text",
+        path: "/docs/components/rolling-text",
         new: true,
       },
     ],
@@ -51,19 +51,19 @@ export const scrollMenuList = [
       {
         id: "call-to-action-link",
         name: "Call to Action Link",
-        path: "/components/call-to-action-link",
+        path: "/docs/components/call-to-action-link",
         new: true,
       },
       {
         id: "magnetic-link",
         name: "Magnetic Link",
-        path: "/components/magnetic-link",
+        path: "/docs/components/magnetic-link",
         new: true,
       },
       {
         id: "mask-cursor",
         name: "Mask Cursor",
-        path: "/components/mask-cursor",
+        path: "/docs/components/mask-cursor",
         new: true,
       },
     ],

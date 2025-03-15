@@ -372,14 +372,13 @@ export default function MaskCursor({
       sourceCode: `/* page.module.css */
 
 .main {
-  .body,
-  .mask {
-    span {
-      color: #ec4e39;
-    }
-    p {
-      width: 100%;
-    }
+  .mask p,
+  .body p {
+    width: 100%;
+  }
+  .mask span,
+  .body span {
+    color: #ec4e39;
   }
   .mask {
     position: absolute;
@@ -391,6 +390,7 @@ export default function MaskCursor({
     color: black;
   }
 }
+
 `,
       type: "css",
       key: "MaskCursorCSS",
