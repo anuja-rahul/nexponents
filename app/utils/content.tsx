@@ -16,36 +16,6 @@ export type scrollMenuList = typeof scrollMenuList;
 export type IntroductionNavigator = typeof IntroductionNavigator;
 export type InstallationNavigator = typeof InstallationNavigator;
 
-const defaultCredits = {
-  data: (
-    <CreditLink
-      text="Credit to"
-      name="Anuja Gunasinghe"
-      href="https://www.github.com/anuja-rahul"
-    />
-  ),
-};
-
-export const IntroductionNavigator = [
-  {
-    title: "On This Page",
-    content: [{ name: "Goal", subtitles: [] }],
-  },
-];
-
-export const InstallationNavigator = [
-  {
-    title: "On This Page",
-    content: [
-      { name: "Frameworks", subtitles: [{ name: "Next.js" }] },
-      {
-        name: "Languages",
-        subtitles: [{ name: "Typescript" }, { name: "Javascript" }],
-      },
-    ],
-  },
-];
-
 export const scrollMenuList = [
   {
     id: "getting-started",
@@ -98,6 +68,48 @@ export const scrollMenuList = [
         name: "Mask Cursor",
         path: "/docs/components/mask-cursor",
         new: true,
+      },
+    ],
+  },
+  {
+    id: "backgrounds",
+    name: "Backgrounds",
+    elements: [
+      {
+        id: "staggered-grid",
+        name: "Staggered Grid",
+        path: "/docs/components/staggered-grid",
+        new: true,
+      },
+    ],
+  },
+];
+
+const defaultCredits = {
+  data: (
+    <CreditLink
+      text="Credit to"
+      name="Anuja Gunasinghe"
+      href="https://www.github.com/anuja-rahul"
+    />
+  ),
+};
+
+export const IntroductionNavigator = [
+  {
+    title: "On This Page",
+    content: [{ name: "Goal", subtitles: [] }],
+  },
+];
+
+export const InstallationNavigator = [
+  {
+    title: "On This Page",
+    content: [
+      { name: "Frameworks", subtitles: [{ name: "Next.js" }] },
+      {
+        name: "Languages",
+        subtitles: [{ name: "Typescript" }, { name: "Javascript" }],
       },
     ],
   },
@@ -167,9 +179,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [
-      defaultCredits
-    ],
+    credits: [defaultCredits],
   },
   //  2nd ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -217,9 +227,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [
-      defaultCredits
-    ],
+    credits: [defaultCredits],
   },
   //  3rd ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -264,9 +272,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [
-      defaultCredits
-    ],
+    credits: [defaultCredits],
   },
   //  4th ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -317,9 +323,58 @@ export const componentList = [
         ],
       },
     ],
-    credits: [
-      defaultCredits
-    ],
+    credits: [defaultCredits],
   },
   //  5th ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "staggered-grid",
+    name: "Staggered Grid",
+    description: ["A grid that animates its children in a staggered manner."],
+    preview: () => <MaskCursorPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "StaggeredGrid" }] },
+        ],
+      },
+    ],
+    demo: maskCursorCode.demo,
+    code: maskCursorCode.code,
+    props: [
+      {
+        id: "StaggeredGrid",
+        name: "Staggered Grid",
+        content: [
+          {
+            name: "maskText",
+            type: "String",
+            default: "-",
+            description: "The text to mask.",
+          },
+          {
+            name: "bodyText",
+            type: "String",
+            default: "-",
+            description: "The text to display.",
+          },
+          {
+            name: "cursorDefaultSize",
+            type: "Number",
+            default: "40",
+            description: "The default size of the cursor.",
+          },
+          {
+            name: "cursorHoverSize",
+            type: "Number",
+            default: "150",
+            description: "The size of the cursor on hover.",
+          },
+        ],
+      },
+    ],
+    credits: [defaultCredits],
+  },
+  //  6th ------------------------------------------------------------------------------------------------------------------------->
 ];

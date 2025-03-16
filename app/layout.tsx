@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexponent UI",
+  title: { default: "Nexponent UI", template: `%s | ${"Nexponent UI"}` },
   description: "A modern UI component library built with Next.js and React.",
 };
 

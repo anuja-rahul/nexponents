@@ -25,7 +25,7 @@ export default function NotFoundSection( {className}: NotFoundSectionProps) {
         </p>
         <div className="flex flex-row items-center justify-center gap-3">
           <Link
-            href={"/components"}
+            href={"/docs/components"}
             className="rounded-xl text-sm font-[500] p-2 pr-3 group bg-foreground/10 text-foreground hover:bg-foreground/15 flex flex-row items-center justify-center flex-nowrap gap-0.5"
           >
             <ChevronLeftIcon className="size-3 transition-transform duration-300 ease-in-out group-hover:-translate-x-1.5 text-foreground" />
