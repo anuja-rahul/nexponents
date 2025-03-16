@@ -11,8 +11,8 @@
   }
   .mask {
     position: absolute;
-    -webkit-mask-image: url("../../public/mask.svg");
-    mask-image: url("../../public/mask.svg");
+    -webkit-mask-image: url("../../../public/mask.svg");
+    mask-image: url("../../../public/mask.svg");
     background: #32adf0;
     mask-repeat: no-repeat;
     mask-size: 50px;

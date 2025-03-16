@@ -1,5 +1,5 @@
 import { FacebookIcon, GithubIcon, TwitterIcon, YoutubeIcon } from "lucide-react";
-import MagneticLinks from "../magnetic-links";
+import MagneticLinks from "../showcase/magnetic-links";
 
 export default function MagneticLinkPreview() {
   return (

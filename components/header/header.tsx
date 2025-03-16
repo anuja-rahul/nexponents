@@ -1,20 +1,21 @@
 import { GithubIcon, SlackIcon, Star, TwitterIcon } from "lucide-react";
 import DocSearchBar from "../doc-searchbar";
 import { ModeToggle } from "../mode-toggle";
-import Navbar from "./navbar";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
+import NavDrawer from "./nav-drawer/nav-drawer";
+// import Navbar from "./navbar";
 
 export default function Header() {
   return (
     <>
       <header className="fixed backdrop-blur-[2px] top-0 w-screen bg-transparent min-h-20 md:min-h-16 flex flex-row flex-nowrap items-center justify-between px-8 z-50 border-b border-foreground/20">
-        <div className="flex-row flex-nowrap gap-4 hidden md:flex">
+        <div className="flex-row flex-nowrap gap-3 hidden md:flex">
           <Link
             href={"/"}
-            className="flex flex-row flex-nowrap items-center justify-center font-bold tracking-tight gap-2 group"
+            className="flex flex-row flex-nowrap items-center justify-center font-bold tracking-tight gap-1 group text-sm md:text-base lg:text-lg"
           >
             <Image
               src={"/nexponent.webp"}
@@ -51,15 +52,17 @@ export default function Header() {
           </Link>
         </div>
         {/* <div>NavBar</div> */}
-        <div className="flex flex-row flex-nowrap items-center justify-between gap-1 md:gap-3">
-          <Button className="hidden md:flex flex-row items-center justify-around h-8 gap-2 w-52 group rounded-lg bg-foreground/80 hover:bg-foreground duration-300">
+        <div className="flex flex-row flex-nowrap items-center justify-between gap-1 lg:gap-3">
+          <Button className="hidden md:flex flex-row items-center justify-around h-8 gap-1 lg:gap-2 w-44 xl:w-52 group rounded-lg bg-foreground/80 hover:bg-foreground duration-300">
             <GithubIcon
               className="opacity-60"
               size={16}
               strokeWidth={2}
               aria-hidden="true"
             />
-            <span className="inline-block">Star on Github</span>
+            <span className="inline-block text-xs xl:text-sm">
+              Star on Github
+            </span>
             <Star
               className="opacity-60 group-hover:text-yellow-400 duration-300"
               size={16}
@@ -74,7 +77,8 @@ export default function Header() {
           <TwitterIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
           <ModeToggle className="border-none bg-transparent" />
         </div>
-        <Navbar className="md:hidden" />
+        {/* <Navbar className="md:hidden" /> */}
+        <NavDrawer className="md:hidden" />
       </header>
     </>
   );

@@ -1,4 +1,4 @@
-import MaskCursor from "../mask-cursor/mask-cursor";
+import MaskCursor from "../showcase/mask-cursor/mask-cursor";
 
 export default function MaskCursorPreview() {
   return (

@@ -1,5 +1,10 @@
-import { ActionButton } from "../action-button";
+import { ActionButton } from "../showcase/action-button";
 
 export default function CallToActionLinkPreview() {
-    return <ActionButton text="Explore Components" src="/components/call-to-action-link" />;
+  return (
+    <ActionButton
+      text="Explore Components"
+      src="/components/call-to-action-link"
+    />
+  );
 }

@@ -1,6 +1,15 @@
 import { ChevronRightIcon } from "lucide-react";
-import { ActionButton } from "./action-button";
+import { ActionButton } from "./showcase/action-button";
 import { Button } from "./ui/button";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { TbBrandFramerMotion } from "react-icons/tb";
+
 
 export default function Hero() {
   return (
@@ -26,10 +35,13 @@ export default function Hero() {
           Library
         </h1>
         <h2 className="text-base md:text-xl w-4/5 md:w-3/5 text-balance text-center">
-          Effortless, reusable, readily available, and customizable UI
+          Effortless, reusable, readily available, customizable and open-source UI
           components for Next.js built with{" "}
-          <span className="font-bold"> Shadcn/ui, Tailwind CSS, React,</span>{" "}
-          and <span className="font-bold">Motion</span>
+          <span className="font-bold">
+            {" "}
+            Shadcn/ui, Tailwind CSS, Typescript,
+          </span>{" "}
+          and <span className="font-bold">Motion</span>.{" "}
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center flex-nowrap gap-4">
           <ActionButton text="Explore Components" src="docs/components" />
@@ -40,6 +52,14 @@ export default function Hero() {
             Get Started{" "}
             <ChevronRightIcon className="size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-1 text-foreground" />
           </Button>
+        </div>
+        <div className="flex flex-row items-center justify-center flex-nowrap gap-4">
+          <SiNextdotjs size={25} />
+          <SiShadcnui size={25} />
+          <SiTailwindcss size={25} />
+          <SiTypescript size={25} />
+          <TbBrandFramerMotion size={25} />
+          <SiReact size={25} />
         </div>
       </section>
     </>

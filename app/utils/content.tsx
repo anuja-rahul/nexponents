@@ -4,11 +4,13 @@ import {
   magneticLinkCode,
   maskCursorCode,
   rollingTextCode,
+  staggeredGridCode,
 } from "./componentCodes";
 import CreditLink from "@/components/credit-link";
 import CallToActionLinkPreview from "@/components/previews/call-to-action-button-preview";
 import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
 import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
+import StaggeredGridPreview from "@/components/previews/staggered-grid-preview";
 // import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
@@ -31,6 +33,12 @@ export const scrollMenuList = [
         id: "installation",
         name: "Installation",
         path: "/docs/installation",
+        new: false,
+      },
+      {
+        id: "components",
+        name: "Components",
+        path: "/docs/components",
         new: false,
       },
     ],
@@ -127,6 +135,7 @@ export const componentList = [
       "Text that rolls vertically on hover.",
       "can be used to add a more dynamic touch to your website.",
     ],
+    prerequisites: [],
     preview: () => <RollingTextPreview />,
     // preview: () => <Navbar className="absolute top-7 right-7 z-1" />,
 
@@ -189,6 +198,7 @@ export const componentList = [
       "An animated link that displays a call to action.",
       "can be used to direct users to a specific page or action.",
     ],
+    prerequisites: [],
     preview: () => <CallToActionLinkPreview />,
     navigator: [
       {
@@ -234,6 +244,7 @@ export const componentList = [
     id: "magnetic-link",
     name: "Magnetic Links",
     description: ["A link icon animated to have a magnetic effect on hover."],
+    prerequisites: [],
     preview: () => <MagneticLinkPreview />,
     navigator: [
       {
@@ -279,6 +290,7 @@ export const componentList = [
     id: "mask-cursor",
     name: "Mask Cursor",
     description: ["A cursor that masks the text on hover."],
+    prerequisites: [],
     preview: () => <MaskCursorPreview />,
     navigator: [
       {
@@ -330,46 +342,55 @@ export const componentList = [
     id: "staggered-grid",
     name: "Staggered Grid",
     description: ["A grid that animates its children in a staggered manner."],
-    preview: () => <MaskCursorPreview />,
+    prerequisites: [
+      {
+        title: "Anime.js",
+        message: "JavaScript animation engine",
+        link: "https://www.npmjs.com/package/animejs",
+      },
+    ],
+    preview: () => <StaggeredGridPreview />,
     navigator: [
       {
         title: "On This Page",
         content: [
+          { name: "Prerequisites", subtitles: [] },
           { name: "Installation", subtitles: [] },
           { name: "Props", subtitles: [{ name: "StaggeredGrid" }] },
         ],
       },
     ],
-    demo: maskCursorCode.demo,
-    code: maskCursorCode.code,
+    demo: staggeredGridCode.demo,
+    code: staggeredGridCode.code,
     props: [
       {
         id: "StaggeredGrid",
         name: "Staggered Grid",
         content: [
           {
-            name: "maskText",
+            name: "className",
             type: "String",
             default: "-",
-            description: "The text to mask.",
+            description: "Additional classes to apply to the component.",
           },
+
           {
-            name: "bodyText",
-            type: "String",
-            default: "-",
-            description: "The text to display.",
-          },
-          {
-            name: "cursorDefaultSize",
+            name: "gridHeight",
             type: "Number",
-            default: "40",
-            description: "The default size of the cursor.",
+            default: "20",
+            description: "Number of dots in the grid vertically.",
           },
           {
-            name: "cursorHoverSize",
+            name: "gridWidth",
             type: "Number",
-            default: "150",
-            description: "The size of the cursor on hover.",
+            default: "25",
+            description: "Number of dots in the grid horizontally.",
+          },
+          {
+            name: "amplitude",
+            type: "Number",
+            default: "-15",
+            description: "The wave amplitude of the staggered grid animation.",
           },
         ],
       },

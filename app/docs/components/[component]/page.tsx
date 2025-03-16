@@ -18,9 +18,10 @@ import { NextButton, PrevButton } from "@/components/move-buttons";
 import ScrollMenu from "@/components/scroll-menu";
 import Navigator from "@/components/navigator";
 import DynamicBreadCrumbs from "@/components/dynamic-breadcrumbs";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: {default: "Components", template: "%s | Components"},
+  title: { default: "Components", template: "%s | Components" },
   description: "Explore the components that make up the Nexponent ui.",
 };
 
@@ -87,7 +88,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                   </TabsList>
                   <hr className="text-foreground/20 w-full" />
                   <TabsContent value="preview" className="mt-4">
-                    <ScrollArea className="h-[350px] w-full rounded-md border border-foreground/20">
+                    <ScrollArea className="h-[350px] w-full max-w-[380px] sm:max-w-[480px] lg:max-w-full rounded-md border border-foreground/20 overflow-x-auto">
                       <div className="min-h-[350px] w-full flex items-center justify-center">
                         <component.preview />
                       </div>
@@ -102,6 +103,44 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                     </ScrollArea>
                   </TabsContent>
                 </Tabs>
+                {/* PREREQUISITES SECTION =========================================================================================================================> */}
+                {component.prerequisites.length > 0 && (
+                  <div
+                    id="Prerequisites"
+                    className="flex flex-col items-start justify-start w-full gap-4 mt-4"
+                  >
+                    <h1 className="text-2xl font-bold w-full border-b border-b-foreground/20 pb-3">
+                      Prerequisites
+                    </h1>
+                    <div className="gap-2">
+                      {component.prerequisites.map((desc, pi) => (
+                        <div key={pi}>
+                          <h2 className="text-foreground/90 text-xl">
+                            {desc.title}
+                          </h2>
+                          <div className="pl-3">
+                            <ul className="list-disc pl-5 text-foreground">
+                              <li className="text-foreground/70 text-base">
+                                {desc.message}
+                              </li>
+                              <li className="text-foreground/70 text-base">
+                                Click{" "}
+                                <Link
+                                  href={desc.link}
+                                  className="text-blue-600 hover:text-blue-400 duration-200 underline"
+                                  target="_blank"
+                                >
+                                  here
+                                </Link>{" "}
+                                for more information.
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 {/* INSTALLATION SECTION =========================================================================================================================> */}
                 <div
                   id="Installation"
@@ -254,7 +293,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
               </div>
             </>
           ) : (
-            <NotFoundSection className="pt-4"/>
+            <NotFoundSection className="pt-4" />
           )}
         </div>
 

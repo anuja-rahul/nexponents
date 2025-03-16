@@ -1,4 +1,4 @@
-import ZoopText from "../zoop-text";
+import ZoopText from "../showcase/zoop-text";
 
 export default function RollingTextPreview() {
   return (
