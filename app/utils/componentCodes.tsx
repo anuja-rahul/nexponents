@@ -131,7 +131,7 @@ export const callToActionLinkCode: componentCodesProps = {
 import { CallToActionLink } from "../action-link";
 
 export default function CallToActionLinkPreview() {
-    return <CallToActionLink text="Explore Components" src="/components/call-to-action-link" />;
+    return <CallToActionLink text="Explore Components" src="#" />;
 }
 
 
@@ -202,16 +202,16 @@ import MagneticLinks from "../magnetic-links";
 export default function MagneticLinkPreview() {
   return (
     <div className="flex flex-row items-center justify-center flex-wrap w-full h-full gap-3 md:gap-6">
-      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+      <MagneticLinks href="#" className="w-16 p-2 aspect-square">
         <FacebookIcon />
       </MagneticLinks>
-      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+      <MagneticLinks href="#" className="w-16 p-2 aspect-square">
         <TwitterIcon />
       </MagneticLinks>
-      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+      <MagneticLinks href="#" className="w-16 p-2 aspect-square">
         <YoutubeIcon />
       </MagneticLinks>
-      <MagneticLinks href="/" className="w-16 p-2 aspect-square">
+      <MagneticLinks href="#" className="w-16 p-2 aspect-square">
         <GithubIcon />
       </MagneticLinks>
     </div>
@@ -556,6 +556,115 @@ const DotGrid = ({ gridWidth, gridHeight, amplitude }: StaggeredDotProps) => {
     `,
       type: "tsx",
       key: "StaggeredGridSource",
+    },
+  ],
+};
+
+export const bubbleHoverTextCode: componentCodesProps = {
+  demo: `import BubbleHoverText from "../showcase/bubble-hover-text/bubble-hover-text";
+
+  export default function BubbleHoverTextPreview() {
+    return <BubbleHoverText text="Nexcomponent Bubble Text!" />;
+  }
+
+
+
+
+
+
+
+
+  `,
+  code: [
+    {
+      sourceCode: `"use client";
+
+import clsx from "clsx";
+import styles from "./page.module.css";
+
+interface BubbleHoverTextProps {
+  className?: string;
+  text: string;
+}
+
+export default function BubbleHoverText({
+  className,
+  text,
+}: BubbleHoverTextProps) {
+  return (
+    <div className={className}>
+      <BubbleText text={text} />
+    </div>
+  );
+}
+
+const BubbleText = ({ text }: BubbleHoverTextProps) => {
+  return (
+    <h2 className="text-center text-2xl lg:text-5xl font-thin text-indigo-900 dark:text-indigo-300">
+      {text.split("").map((char, id) => {
+        return (
+          <span key={id} className={clsx(styles.bubbleHoverText, "")}>
+            {char}
+          </span>
+        );
+      })}
+    </h2>
+  );
+};
+`,
+      type: "tsx",
+      key: "BubbleHoverTextSource",
+    },
+    {
+      sourceCode: `
+/* page.module.css */
+
+.bubbleHoverText {
+  transition:
+    0.35s font-weight,
+    0.35s color;
+}
+
+.bubbleHoverText:hover {
+  font-weight: 900;
+  color: var(--foreground);
+}
+
+/* right side */
+.bubbleHoverText:hover + .bubbleHoverText {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--foreground) 90%, transparent);
+}
+.bubbleHoverText:hover + .bubbleHoverText + .bubbleHoverText {
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+}
+.bubbleHoverText:hover
+  + .bubbleHoverText
+  + .bubbleHoverText
+  + .bubbleHoverText {
+  font-weight: 300;
+}
+
+/* left side */
+.bubbleHoverText:has(+ .bubbleHoverText:hover) {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--foreground) 90%, transparent);
+}
+
+.bubbleHoverText:has(+ .bubbleHoverText + .bubbleHoverText:hover) {
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+}
+
+.bubbleHoverText:has(
+    + .bubbleHoverText + .bubbleHoverText + .bubbleHoverText:hover
+  ) {
+  font-weight: 300;
+}
+`,
+      type: "css",
+      key: "BubbleHoverTextStyleSource",
     },
   ],
 };

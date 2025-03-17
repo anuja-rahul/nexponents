@@ -180,3 +180,25 @@
 .active {
   color: var(--foreground);
 }
+
+
+/* @font-face {
+  font-family: 'MonaSans';
+  src: url('/fonts/Mona-Sans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: 'Mona Sans';
+  src:
+    url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('/fonts/Mona-Sans.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+html {
+  font-family: 'Mona Sans';
+  font-feature-settings: "ss01" on, "ss02" on, "ss03" on, "ss04" on, "ss05" on, "ss06" on, "ss07" on, "ss08" on;
+}

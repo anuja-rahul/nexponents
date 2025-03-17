@@ -95,7 +95,7 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                     </ScrollArea>
                   </TabsContent>
                   <TabsContent value="code" className="mt-4 overflow-hidden">
-                    <ScrollArea className="h-[350px] w-fit rounded-md border border-foreground/20 overflow-hidden">
+                    <ScrollArea className="h-[350px] w-full max-w-[380px] sm:max-w-[480px] lg:max-w-full rounded-md border border-foreground/20 overflow-x-auto">
                       <CodeBlock
                         code={component.demo}
                         className="md:max-w-[55vw] lg:max-w-[65vw] xl:max-w-[55vw]"

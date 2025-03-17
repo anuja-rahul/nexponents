@@ -1,0 +1,45 @@
+/* page.module.css */
+
+.bubbleHoverText {
+  transition:
+    0.35s font-weight,
+    0.35s color;
+}
+
+.bubbleHoverText:hover {
+  font-weight: 900;
+  color: var(--foreground);
+}
+
+/* right side */
+.bubbleHoverText:hover + .bubbleHoverText {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--foreground) 90%, transparent);
+}
+.bubbleHoverText:hover + .bubbleHoverText + .bubbleHoverText {
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+}
+.bubbleHoverText:hover
+  + .bubbleHoverText
+  + .bubbleHoverText
+  + .bubbleHoverText {
+  font-weight: 300;
+}
+
+/* left side */
+.bubbleHoverText:has(+ .bubbleHoverText:hover) {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--foreground) 90%, transparent);
+}
+
+.bubbleHoverText:has(+ .bubbleHoverText + .bubbleHoverText:hover) {
+  font-weight: 400;
+  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+}
+
+.bubbleHoverText:has(
+    + .bubbleHoverText + .bubbleHoverText + .bubbleHoverText:hover
+  ) {
+  font-weight: 300;
+}
