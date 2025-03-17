@@ -80,9 +80,25 @@ export default function Header() {
             </span>
           </Link>
           <DocSearchBar />
-          <GithubIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
-          <SlackIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
-          <TwitterIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
+          <Link
+            href="https://github.com/anuja-rahul/nexponents"
+            target="_blank"
+            className="opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15"
+          >
+            <GithubIcon className="w-8 h-8 aspect-square p-2" />
+          </Link>
+          <Link
+            href="#"
+            className="opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15"
+          >
+            <SlackIcon className="w-8 h-8 aspect-square p-2" />
+          </Link>
+          <Link
+            href="#"
+            className="opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15"
+          >
+            <TwitterIcon className="w-8 h-8 aspect-square p-2" />
+          </Link>
           <ModeToggle className="border-none bg-transparent" />
         </div>
         {/* <Navbar className="md:hidden" /> */}

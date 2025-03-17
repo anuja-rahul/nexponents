@@ -69,22 +69,25 @@ export default function Navigator({ navigator }: NavigatorProps) {
               </h1>
               <div className="gap-2 flex flex-col items-start justify-start w-full px-2">
                 <NavigatorLink
-                  href="#"
+                  href="https://github.com/anuja-rahul/nexponents/issues/new/choose"
                   text="Report an issue"
+                  target="_blank"
                   icon={
                     <BugIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
                   }
                 />
                 <NavigatorLink
-                  href="#"
+                  href="https://github.com/anuja-rahul/nexponents/issues/new/choose"
                   text="Request a feature"
+                  target="_blank"
                   icon={
                     <LightbulbIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
                   }
                 />
                 <NavigatorLink
-                  href="#"
-                  text="Edit this page"
+                  href="https://github.com/anuja-rahul/nexponents/"
+                  text="Edit this project"
+                  target="_blank"
                   icon={
                     <PencilIcon className="w-4 h-4 text-foreground/60 group-hover:text-foreground mt-1" />
                   }
