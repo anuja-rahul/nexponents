@@ -1,11 +1,11 @@
 import { GithubIcon, SlackIcon, Star, TwitterIcon } from "lucide-react";
 import DocSearchBar from "../doc-searchbar";
 import { ModeToggle } from "../mode-toggle";
-import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
 import NavDrawer from "./nav-drawer/nav-drawer";
+import GitHubStars from "../github-stars";
 // import Navbar from "./navbar";
 
 export default function Header() {
@@ -53,13 +53,19 @@ export default function Header() {
         </div>
         {/* <div>NavBar</div> */}
         <div className="flex flex-row flex-nowrap items-center justify-between gap-1 lg:gap-3">
-          <Button className="hidden md:flex flex-row items-center justify-around h-8 gap-1 lg:gap-2 w-44 xl:w-52 group rounded-lg bg-foreground/80 hover:bg-foreground duration-300">
-            <GithubIcon
-              className="opacity-60"
-              size={16}
-              strokeWidth={2}
-              aria-hidden="true"
-            />
+          <Link
+            href="https://github.com/anuja-rahul/nexponents"
+            target="_blank"
+            className="hidden md:flex flex-row place-items-center items-center justify-around h-8 gap-1 w-44 xl:w-52 group rounded-lg bg-foreground/80 hover:bg-foreground duration-300 text-background"
+          >
+            <div className="bg-foreground rounded-full text-black p-[2px] dark:bg-white">
+              <GithubIcon
+                className="opacity-60 text-background"
+                size={16}
+                strokeWidth={2}
+                aria-hidden="true"
+              />
+            </div>
             <span className="inline-block text-xs xl:text-sm">
               Star on Github
             </span>
@@ -69,8 +75,10 @@ export default function Header() {
               strokeWidth={3}
               aria-hidden="true"
             />
-            <span className="text-xs text-primary-foreground/60">729</span>
-          </Button>
+            <span className="text-sm text-primary-foreground/60">
+              <GitHubStars />
+            </span>
+          </Link>
           <DocSearchBar />
           <GithubIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
           <SlackIcon className="w-8 h-8 aspect-square opacity-70 hover:opacity-90 duration-300 rounded-lg hover:bg-slate-600/15 p-2" />
