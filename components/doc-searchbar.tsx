@@ -36,7 +36,7 @@ export default function DocSearchBar() {
   }, []);
 
   const handleCommandItemClick = () => {
-    setOpen(false); // Close the search bar when an item is clicked
+    setOpen(false);
   };
 
   return (
@@ -76,9 +76,9 @@ export default function DocSearchBar() {
                       {section.elements.map((element, index) => (
                         <CommandItem
                           key={index}
-                          onClick={handleCommandItemClick} // Close the dialog on item click
+                          onSelect={handleCommandItemClick}
                         >
-                          <Link href={element.path}>
+                          <Link href={element.path} passHref>
                             {element.name}
                             {element.new && (
                               <Badge
