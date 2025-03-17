@@ -35,6 +35,10 @@ export default function DocSearchBar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleCommandItemClick = () => {
+    setOpen(false); // Close the search bar when an item is clicked
+  };
+
   return (
     <>
       <div
@@ -70,7 +74,10 @@ export default function DocSearchBar() {
                   <div className="gap-1 pl-6 flex flex-col items-start justify-start w-full mb-5">
                     <div className="gap-[2px] flex flex-col items-start justify-start w-full">
                       {section.elements.map((element, index) => (
-                        <CommandItem key={index}>
+                        <CommandItem
+                          key={index}
+                          onClick={handleCommandItemClick} // Close the dialog on item click
+                        >
                           <Link href={element.path}>
                             {element.name}
                             {element.new && (
