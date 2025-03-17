@@ -35,6 +35,10 @@ export default function DocSearchBar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleCommandItemClick = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <div
@@ -70,8 +74,11 @@ export default function DocSearchBar() {
                   <div className="gap-1 pl-6 flex flex-col items-start justify-start w-full mb-5">
                     <div className="gap-[2px] flex flex-col items-start justify-start w-full">
                       {section.elements.map((element, index) => (
-                        <CommandItem key={index}>
-                          <Link href={element.path}>
+                        <CommandItem
+                          key={index}
+                          onSelect={handleCommandItemClick}
+                        >
+                          <Link href={element.path} passHref>
                             {element.name}
                             {element.new && (
                               <Badge

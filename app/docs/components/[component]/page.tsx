@@ -115,15 +115,15 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
                     <div className="gap-2">
                       {component.prerequisites.map((desc, pi) => (
                         <div key={pi}>
-                          <h2 className="text-foreground/90 text-xl">
+                          <h2 className="text-foreground/90 text-base lg:text-lg">
                             {desc.title}
                           </h2>
                           <div className="pl-3">
                             <ul className="list-disc pl-5 text-foreground">
-                              <li className="text-foreground/70 text-base">
+                              <li className="text-foreground/70 text-sm lg:text-base">
                                 {desc.message}
                               </li>
-                              <li className="text-foreground/70 text-base">
+                              <li className="text-foreground/70 text-sm lg:text-base">
                                 Click{" "}
                                 <Link
                                   href={desc.link}
