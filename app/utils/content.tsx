@@ -2,6 +2,7 @@ import RollingTextPreview from "@/components/previews/rolling-text-preview";
 import {
   bubbleHoverTextCode,
   callToActionLinkCode,
+  gradientGlassBoxCode,
   magneticLinkCode,
   maskCursorCode,
   rollingTextCode,
@@ -13,6 +14,7 @@ import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
 import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
 import StaggeredGridPreview from "@/components/previews/staggered-grid-preview";
 import BubbleHoverTextPreview from "@/components/previews/bubble-hover-text-preview";
+import GradientGlassBoxPreview from "@/components/previews/gradient-glass-box-preview";
 // import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
@@ -53,7 +55,7 @@ export const scrollMenuList = [
         id: "rolling-text",
         name: "Rolling Text",
         path: "/docs/components/rolling-text",
-        new: true,
+        new: false,
       },
       {
         id: "bubble-hover-text",
@@ -71,18 +73,30 @@ export const scrollMenuList = [
         id: "call-to-action-link",
         name: "Call to Action Link",
         path: "/docs/components/call-to-action-link",
-        new: true,
+        new: false,
       },
       {
         id: "magnetic-link",
         name: "Magnetic Link",
         path: "/docs/components/magnetic-link",
-        new: true,
+        new: false,
       },
       {
         id: "mask-cursor",
         name: "Mask Cursor",
         path: "/docs/components/mask-cursor",
+        new: false,
+      },
+      {
+        id: "gradient-glass-box",
+        name: "Gradient Glass Box",
+        path: "/docs/components/gradient-glass-box",
+        new: true,
+      },
+      {
+        id: "draw-svg-text",
+        name: "Draw SVG Text",
+        path: "/docs/components/draw-svg-text",
         new: true,
       },
     ],
@@ -95,7 +109,7 @@ export const scrollMenuList = [
         id: "staggered-grid",
         name: "Staggered Grid",
         path: "/docs/components/staggered-grid",
-        new: true,
+        new: false,
       },
     ],
   },
@@ -383,7 +397,7 @@ export const componentList = [
     props: [
       {
         id: "MaskCursor",
-        name: "Mask Cursor",
+        name: "MaskCursor",
         content: [
           {
             name: "maskText",
@@ -413,6 +427,46 @@ export const componentList = [
       },
     ],
     credits: [],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "gradient-glass-box",
+    name: "Gradient Glass Box",
+    description: ["A glass box with a gradient background shadow."],
+    prerequisites: [],
+    preview: () => <GradientGlassBoxPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "GradientGlassBox" }] },
+        ],
+      },
+    ],
+    demo: gradientGlassBoxCode.demo,
+    code: gradientGlassBoxCode.code,
+    props: [
+      {
+        id: "GradientGlassBox",
+        name: "GradientGlassBox",
+        content: [
+          {
+            name: "children",
+            type: "Rect.ReactNode",
+            default: "-",
+            description: "The content to display in the glass box.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+        ],
+      },
+    ],
+    credits: [defaultCredits, TomsCredits],
   },
   //  ------------------------------------------------------------------------------------------------------------------------->
   {

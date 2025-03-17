@@ -7,6 +7,7 @@ interface NavigatorLinkProps {
   text: string;
   className?: string;
   icon?: JSX.Element;
+  target?: string;
 }
 
 export default function NavigatorLink({
@@ -14,6 +15,7 @@ export default function NavigatorLink({
   text,
   className,
   icon,
+  target,
 }: NavigatorLinkProps) {
   return (
     <Link
@@ -22,6 +24,7 @@ export default function NavigatorLink({
         className
       )}
       href={href}
+      {...(target && { target })}
     >
       {icon}
       <span className={icon ? "ml-2" : "ml-0"}>{text}</span>
