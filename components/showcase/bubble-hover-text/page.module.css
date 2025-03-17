@@ -2,44 +2,54 @@
 
 .bubbleHoverText {
   transition:
-    0.35s font-weight,
-    0.35s color;
+    0.25s font-weight,
+    0.25s color,
+    0.25s font-stretch;
+  font-weight: 100;
+  font-stretch: 100%;
 }
 
 .bubbleHoverText:hover {
   font-weight: 900;
   color: var(--foreground);
+  font-stretch: 125%;
 }
 
 /* right side */
 .bubbleHoverText:hover + .bubbleHoverText {
   font-weight: 600;
   color: color-mix(in oklab, var(--foreground) 90%, transparent);
+  font-stretch: 115%;
 }
 .bubbleHoverText:hover + .bubbleHoverText + .bubbleHoverText {
   font-weight: 400;
-  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  font-stretch: 105%;
 }
 .bubbleHoverText:hover
   + .bubbleHoverText
   + .bubbleHoverText
   + .bubbleHoverText {
   font-weight: 300;
+  font-stretch: 100%;
 }
 
 /* left side */
 .bubbleHoverText:has(+ .bubbleHoverText:hover) {
   font-weight: 600;
   color: color-mix(in oklab, var(--foreground) 90%, transparent);
+  font-stretch: 115%;
 }
 
 .bubbleHoverText:has(+ .bubbleHoverText + .bubbleHoverText:hover) {
   font-weight: 400;
-  color: color-mix(in oklab, var(--foreground) 80%, transparent);
+  color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  font-stretch: 105%;
 }
 
 .bubbleHoverText:has(
     + .bubbleHoverText + .bubbleHoverText + .bubbleHoverText:hover
   ) {
   font-weight: 300;
+  font-stretch: 100%;
 }
