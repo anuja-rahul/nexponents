@@ -144,7 +144,7 @@ export const InstallationNavigator = [
 //  ComponentList ----------------------------------------------------------------------------------------------------------------------------------------------->
 
 export const componentList = [
-  //  1st ------------------------------------------------------------------------------------------------------------------------->
+  //  ------------------------------------------------------------------------------------------------------------------------->
 
   {
     id: "rolling-text",
@@ -208,214 +208,7 @@ export const componentList = [
     ],
     credits: [defaultCredits, TomsCredits],
   },
-  //  2nd ------------------------------------------------------------------------------------------------------------------------->
-  {
-    id: "call-to-action-link",
-    name: "Call to Action Link",
-    description: [
-      "An animated link that displays a call to action.",
-      "can be used to direct users to a specific page or action.",
-    ],
-    prerequisites: [],
-    preview: () => <CallToActionLinkPreview />,
-    navigator: [
-      {
-        title: "On This Page",
-        content: [
-          { name: "Installation", subtitles: [] },
-          { name: "Props", subtitles: [{ name: "CallToActionButton" }] },
-        ],
-      },
-    ],
-    demo: callToActionLinkCode.demo,
-    code: callToActionLinkCode.code,
-    props: [
-      {
-        id: "CallToActionButton",
-        name: "Call to Action Button",
-        content: [
-          {
-            name: "text",
-            type: "String",
-            default: "-",
-            description: "The text to display on the link.",
-          },
-          {
-            name: "className",
-            type: "String",
-            default: "-",
-            description: "Additional classes to apply to the component.",
-          },
-          {
-            name: "src",
-            type: "String",
-            default: "-",
-            description: "The link to direct the user to.",
-          },
-        ],
-      },
-    ],
-    credits: [defaultCredits],
-  },
-  //  3rd ------------------------------------------------------------------------------------------------------------------------->
-  {
-    id: "magnetic-link",
-    name: "Magnetic Links",
-    description: ["A link icon animated to have a magnetic effect on hover."],
-    prerequisites: [],
-    preview: () => <MagneticLinkPreview />,
-    navigator: [
-      {
-        title: "On This Page",
-        content: [
-          { name: "Installation", subtitles: [] },
-          { name: "Props", subtitles: [{ name: "MagneticLink" }] },
-        ],
-      },
-    ],
-    demo: magneticLinkCode.demo,
-    code: magneticLinkCode.code,
-    props: [
-      {
-        id: "MagneticLink",
-        name: "Magnatic Link",
-        content: [
-          {
-            name: "children",
-            type: "React.ReactNode",
-            default: "-",
-            description: "The content to display on the link.",
-          },
-          {
-            name: "className",
-            type: "String",
-            default: "-",
-            description: "Additional classes to apply to the component.",
-          },
-          {
-            name: "href",
-            type: "String",
-            default: "-",
-            description: "The link to direct the user to.",
-          },
-        ],
-      },
-    ],
-    credits: [],
-  },
-  //  4th ------------------------------------------------------------------------------------------------------------------------->
-  {
-    id: "mask-cursor",
-    name: "Mask Cursor",
-    description: ["A cursor that masks the text on hover."],
-    prerequisites: [],
-    preview: () => <MaskCursorPreview />,
-    navigator: [
-      {
-        title: "On This Page",
-        content: [
-          { name: "Installation", subtitles: [] },
-          { name: "Props", subtitles: [{ name: "MaskCursor" }] },
-        ],
-      },
-    ],
-    demo: maskCursorCode.demo,
-    code: maskCursorCode.code,
-    props: [
-      {
-        id: "MaskCursor",
-        name: "Mask Cursor",
-        content: [
-          {
-            name: "maskText",
-            type: "String",
-            default: "-",
-            description: "The text to mask.",
-          },
-          {
-            name: "bodyText",
-            type: "String",
-            default: "-",
-            description: "The text to display.",
-          },
-          {
-            name: "cursorDefaultSize",
-            type: "Number",
-            default: "40",
-            description: "The default size of the cursor.",
-          },
-          {
-            name: "cursorHoverSize",
-            type: "Number",
-            default: "150",
-            description: "The size of the cursor on hover.",
-          },
-        ],
-      },
-    ],
-    credits: [],
-  },
-  //  5th ------------------------------------------------------------------------------------------------------------------------->
-  {
-    id: "staggered-grid",
-    name: "Staggered Grid",
-    description: ["A grid that animates its children in a staggered manner."],
-    prerequisites: [
-      {
-        title: "Anime.js",
-        message: "JavaScript animation engine",
-        link: "https://www.npmjs.com/package/animejs",
-      },
-    ],
-    preview: () => <StaggeredGridPreview />,
-    navigator: [
-      {
-        title: "On This Page",
-        content: [
-          { name: "Prerequisites", subtitles: [] },
-          { name: "Installation", subtitles: [] },
-          { name: "Props", subtitles: [{ name: "StaggeredGrid" }] },
-        ],
-      },
-    ],
-    demo: staggeredGridCode.demo,
-    code: staggeredGridCode.code,
-    props: [
-      {
-        id: "StaggeredGrid",
-        name: "Staggered Grid",
-        content: [
-          {
-            name: "className",
-            type: "String",
-            default: "-",
-            description: "Additional classes to apply to the component.",
-          },
-
-          {
-            name: "gridHeight",
-            type: "Number",
-            default: "20",
-            description: "Number of dots in the grid vertically.",
-          },
-          {
-            name: "gridWidth",
-            type: "Number",
-            default: "25",
-            description: "Number of dots in the grid horizontally.",
-          },
-          {
-            name: "amplitude",
-            type: "Number",
-            default: "-15",
-            description: "The wave amplitude of the staggered grid animation.",
-          },
-        ],
-      },
-    ],
-    credits: [defaultCredits, TomsCredits],
-  },
-  //  6th ------------------------------------------------------------------------------------------------------------------------->
+  //  ------------------------------------------------------------------------------------------------------------------------->
   {
     id: "bubble-hover-text",
     name: "Bubble Hover Text",
@@ -475,5 +268,212 @@ export const componentList = [
       TomsCredits,
     ],
   },
-  //  7th ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "call-to-action-link",
+    name: "Call to Action Link",
+    description: [
+      "An animated link that displays a call to action.",
+      "can be used to direct users to a specific page or action.",
+    ],
+    prerequisites: [],
+    preview: () => <CallToActionLinkPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "CallToActionButton" }] },
+        ],
+      },
+    ],
+    demo: callToActionLinkCode.demo,
+    code: callToActionLinkCode.code,
+    props: [
+      {
+        id: "CallToActionButton",
+        name: "Call to Action Button",
+        content: [
+          {
+            name: "text",
+            type: "String",
+            default: "-",
+            description: "The text to display on the link.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "src",
+            type: "String",
+            default: "-",
+            description: "The link to direct the user to.",
+          },
+        ],
+      },
+    ],
+    credits: [defaultCredits],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "magnetic-link",
+    name: "Magnetic Links",
+    description: ["A link icon animated to have a magnetic effect on hover."],
+    prerequisites: [],
+    preview: () => <MagneticLinkPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "MagneticLink" }] },
+        ],
+      },
+    ],
+    demo: magneticLinkCode.demo,
+    code: magneticLinkCode.code,
+    props: [
+      {
+        id: "MagneticLink",
+        name: "Magnatic Link",
+        content: [
+          {
+            name: "children",
+            type: "React.ReactNode",
+            default: "-",
+            description: "The content to display on the link.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "href",
+            type: "String",
+            default: "-",
+            description: "The link to direct the user to.",
+          },
+        ],
+      },
+    ],
+    credits: [],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "mask-cursor",
+    name: "Mask Cursor",
+    description: ["A cursor that masks the text on hover."],
+    prerequisites: [],
+    preview: () => <MaskCursorPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "MaskCursor" }] },
+        ],
+      },
+    ],
+    demo: maskCursorCode.demo,
+    code: maskCursorCode.code,
+    props: [
+      {
+        id: "MaskCursor",
+        name: "Mask Cursor",
+        content: [
+          {
+            name: "maskText",
+            type: "String",
+            default: "-",
+            description: "The text to mask.",
+          },
+          {
+            name: "bodyText",
+            type: "String",
+            default: "-",
+            description: "The text to display.",
+          },
+          {
+            name: "cursorDefaultSize",
+            type: "Number",
+            default: "40",
+            description: "The default size of the cursor.",
+          },
+          {
+            name: "cursorHoverSize",
+            type: "Number",
+            default: "150",
+            description: "The size of the cursor on hover.",
+          },
+        ],
+      },
+    ],
+    credits: [],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "staggered-grid",
+    name: "Staggered Grid",
+    description: ["A grid that animates its children in a staggered manner."],
+    prerequisites: [
+      {
+        title: "Anime.js",
+        message: "JavaScript animation engine",
+        link: "https://www.npmjs.com/package/animejs",
+      },
+    ],
+    preview: () => <StaggeredGridPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Prerequisites", subtitles: [] },
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "StaggeredGrid" }] },
+        ],
+      },
+    ],
+    demo: staggeredGridCode.demo,
+    code: staggeredGridCode.code,
+    props: [
+      {
+        id: "StaggeredGrid",
+        name: "Staggered Grid",
+        content: [
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+
+          {
+            name: "gridHeight",
+            type: "Number",
+            default: "20",
+            description: "Number of dots in the grid vertically.",
+          },
+          {
+            name: "gridWidth",
+            type: "Number",
+            default: "25",
+            description: "Number of dots in the grid horizontally.",
+          },
+          {
+            name: "amplitude",
+            type: "Number",
+            default: "-15",
+            description: "The wave amplitude of the staggered grid animation.",
+          },
+        ],
+      },
+    ],
+    credits: [defaultCredits, TomsCredits],
+  },
+
+  //  ------------------------------------------------------------------------------------------------------------------------->
 ];
