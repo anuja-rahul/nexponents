@@ -1,5 +1,6 @@
 import RollingTextPreview from "@/components/previews/rolling-text-preview";
 import {
+  bubbleHoverTextCode,
   callToActionLinkCode,
   magneticLinkCode,
   maskCursorCode,
@@ -11,6 +12,7 @@ import CallToActionLinkPreview from "@/components/previews/call-to-action-button
 import MagneticLinkPreview from "@/components/previews/magnetic-link-preview";
 import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
 import StaggeredGridPreview from "@/components/previews/staggered-grid-preview";
+import BubbleHoverTextPreview from "@/components/previews/bubble-hover-text-preview";
 // import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
@@ -51,6 +53,12 @@ export const scrollMenuList = [
         id: "rolling-text",
         name: "Rolling Text",
         path: "/docs/components/rolling-text",
+        new: true,
+      },
+      {
+        id: "bubble-hover-text",
+        name: "Bubble Hover Text",
+        path: "/docs/components/bubble-hover-text",
         new: true,
       },
     ],
@@ -97,8 +105,18 @@ const defaultCredits = {
   data: (
     <CreditLink
       text="Credit to"
-      name="Anuja Gunasinghe"
+      name="@anuja-rahul"
       href="https://www.github.com/anuja-rahul"
+    />
+  ),
+};
+
+const TomsCredits = {
+  data: (
+    <CreditLink
+      text="Special thanks to"
+      name="@tomisloading"
+      href="https://github.com/TomIsLoading"
     />
   ),
 };
@@ -188,7 +206,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [defaultCredits],
+    credits: [defaultCredits, TomsCredits],
   },
   //  2nd ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -283,7 +301,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [defaultCredits],
+    credits: [],
   },
   //  4th ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -335,7 +353,7 @@ export const componentList = [
         ],
       },
     ],
-    credits: [defaultCredits],
+    credits: [],
   },
   //  5th ------------------------------------------------------------------------------------------------------------------------->
   {
@@ -395,7 +413,67 @@ export const componentList = [
         ],
       },
     ],
-    credits: [defaultCredits],
+    credits: [defaultCredits, TomsCredits],
   },
   //  6th ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "bubble-hover-text",
+    name: "Bubble Hover Text",
+    description: ["A text that animate it's font weight smoothly on hover."],
+    prerequisites: [
+      {
+        title:
+          "A variable font is preferred (but not mandatory) for smoother transitions.",
+        message: "In this case Mona & Hubot sans are used.",
+        link: "https://github.com/mona-sans",
+      },
+    ],
+    preview: () => <BubbleHoverTextPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Prerequisites", subtitles: [] },
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "BubbleHoverText" }] },
+        ],
+      },
+    ],
+    demo: bubbleHoverTextCode.demo,
+    code: bubbleHoverTextCode.code,
+    props: [
+      {
+        id: "BubbleHoverText",
+        name: "Bubble Hover Text",
+        content: [
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+          {
+            name: "text",
+            type: "String",
+            default: "-",
+            description: "The text to display.",
+          },
+        ],
+      },
+    ],
+    credits: [
+      defaultCredits,
+      {
+        data: (
+          <CreditLink
+            text="Inspired by"
+            name="GitHub Mona sans page animation"
+            href="https://github.com/mona-sans"
+          />
+        ),
+      },
+      TomsCredits,
+    ],
+  },
+  //  7th ------------------------------------------------------------------------------------------------------------------------->
 ];

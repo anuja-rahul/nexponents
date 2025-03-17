@@ -8,7 +8,7 @@ export default function RollingTextPreview() {
         className="text-foreground text-lg md:text-xl lg:text-4xl"
         lineHeight={0.9}
         text="Rolling Text Upwards"
-        altText="Rolling Text is cooler"
+        altText="Rolling Text is cool"
       />
       <ZoopText
         lineHeight={0.9}
