@@ -10,7 +10,7 @@ To use Nexponents, ensure you have the following installed:
 
 - Node.js 14.0.0 or later
 - npm 6.0.0 or later
-- Next.js 15.2.2-canary.6 or later
+- Next.js 15.0 or later
 - React 19.0.0 or later
 - TailwindCSS 4.0.0 or later
 
@@ -21,9 +21,9 @@ Additionally, you may need the following dependencies for development:
 - Prettier 3.5.3 or later
 - Sass 1.85.1 or later
 - Framer Motion 7.0.0 or later
-- Other required packages as specified in the `package.json` file
+- Other required packages as specified within each page
 
-Refer to the `package.json` file for the complete list of dependencies.
+Refer to the `documentation` page for the complete list of dependencies for each component.
 
 ## Documentation
 

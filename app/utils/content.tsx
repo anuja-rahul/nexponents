@@ -2,6 +2,7 @@ import RollingTextPreview from "@/components/previews/rolling-text-preview";
 import {
   bubbleHoverTextCode,
   callToActionLinkCode,
+  drawSvgTextCode,
   gradientGlassBoxCode,
   magneticLinkCode,
   maskCursorCode,
@@ -15,6 +16,7 @@ import MaskCursorPreview from "@/components/previews/mask-cursor-preview";
 import StaggeredGridPreview from "@/components/previews/staggered-grid-preview";
 import BubbleHoverTextPreview from "@/components/previews/bubble-hover-text-preview";
 import GradientGlassBoxPreview from "@/components/previews/gradient-glass-box-preview";
+import DrawSvgTextPreview from "@/components/previews/draw-svg-text-preview";
 // import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
@@ -63,6 +65,12 @@ export const scrollMenuList = [
         path: "/docs/components/bubble-hover-text",
         new: true,
       },
+      {
+        id: "draw-svg-text",
+        name: "Draw SVG Text",
+        path: "/docs/components/draw-svg-text",
+        new: true,
+      },
     ],
   },
   {
@@ -91,12 +99,6 @@ export const scrollMenuList = [
         id: "gradient-glass-box",
         name: "Gradient Glass Box",
         path: "/docs/components/gradient-glass-box",
-        new: true,
-      },
-      {
-        id: "draw-svg-text",
-        name: "Draw SVG Text",
-        path: "/docs/components/draw-svg-text",
         new: true,
       },
     ],
@@ -282,6 +284,66 @@ export const componentList = [
       TomsCredits,
     ],
   },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "draw-svg-text",
+    name: "Draw SVG Text",
+    description: ["A SVG element that animate around a text."],
+    prerequisites: [],
+    preview: () => <DrawSvgTextPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "DrawSvgText" }] },
+        ],
+      },
+    ],
+    demo: drawSvgTextCode.demo,
+    code: drawSvgTextCode.code,
+    props: [
+      {
+        id: "DrawSvgText",
+        name: "DrawSvgText",
+        content: [
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description:
+              "Adjust the position of the SVG element using tailwind classes.",
+          },
+          {
+            name: "textBefore",
+            type: "String",
+            default: "-",
+            description: "The text to display before the animated text.",
+          },
+          {
+            name: "text",
+            type: "String",
+            default: "-",
+            description: "The text to display.",
+          },
+          {
+            name: "textAfter",
+            type: "String",
+            default: "-",
+            description: "The text to display after the animated text.",
+          },
+          {
+            name: "playOnce",
+            type: "Boolean",
+            default: "true",
+            description: "If the animation should only play once.",
+          },
+        ],
+      },
+    ],
+    credits: [defaultCredits, TomsCredits],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
   {
     id: "call-to-action-link",
     name: "Call to Action Link",
