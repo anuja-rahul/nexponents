@@ -48,10 +48,12 @@ export default async function ComponentsPage(props: ComponentsPageProps) {
   }
 
   return (
-    <section className="mt-16 flex flex-col flex-nowrap md:grid md:grid-cols-[280px_1fr] items-start justify-start w-full min-h-screen">
-      <div className="bg-background px-4 hidden md:flex w-[250px] lg:w-[280px] min-h-screen sticky left-0 top-12">
-        <ScrollArea className="h-screen w-full rounded-md pt-8">
-          <ScrollMenu />
+    <section className="mt-16 flex flex-col md:grid md:grid-cols-[280px_1fr] w-full min-h-screen">
+      <div className="bg-background pl-4 hidden md:flex w-[250px] lg:w-[280px] max-h-screen sticky left-0 top-12 overflow-auto">
+        <ScrollArea className="w-full rounded-md pt-8 max-h-screen">
+          <div className="mr-4">
+            <ScrollMenu />
+          </div>
         </ScrollArea>
       </div>
 

@@ -17,6 +17,7 @@ import StaggeredGridPreview from "@/components/previews/staggered-grid-preview";
 import BubbleHoverTextPreview from "@/components/previews/bubble-hover-text-preview";
 import GradientGlassBoxPreview from "@/components/previews/gradient-glass-box-preview";
 import DrawSvgTextPreview from "@/components/previews/draw-svg-text-preview";
+import StickyCursorPreview from "@/components/previews/sticky-cursor-preview";
 // import Navbar from "@/components/header/navbar";
 
 export type ComponentList = typeof componentList;
@@ -99,6 +100,12 @@ export const scrollMenuList = [
         id: "gradient-glass-box",
         name: "Gradient Glass Box",
         path: "/docs/components/gradient-glass-box",
+        new: true,
+      },
+      {
+        id: "sticky-cursor",
+        name: "StickyCursor",
+        path: "/docs/components/sticky-cursor",
         new: true,
       },
     ],
@@ -529,6 +536,46 @@ export const componentList = [
       },
     ],
     credits: [defaultCredits, TomsCredits],
+  },
+  //  ------------------------------------------------------------------------------------------------------------------------->
+  {
+    id: "sticky-cursor",
+    name: "Sticky Cursor",
+    description: ["A cursor that sticks to the element on hover."],
+    prerequisites: [],
+    preview: () => <StickyCursorPreview />,
+    navigator: [
+      {
+        title: "On This Page",
+        content: [
+          { name: "Installation", subtitles: [] },
+          { name: "Props", subtitles: [{ name: "StickyCursor" }] },
+        ],
+      },
+    ],
+    demo: gradientGlassBoxCode.demo,
+    code: gradientGlassBoxCode.code,
+    props: [
+      {
+        id: "StickyCursor",
+        name: "StickyCursor",
+        content: [
+          {
+            name: "children",
+            type: "Rect.ReactNode",
+            default: "-",
+            description: "The content to display inside.",
+          },
+          {
+            name: "className",
+            type: "String",
+            default: "-",
+            description: "Additional classes to apply to the component.",
+          },
+        ],
+      },
+    ],
+    credits: [],
   },
   //  ------------------------------------------------------------------------------------------------------------------------->
   {
