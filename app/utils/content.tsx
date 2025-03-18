@@ -104,7 +104,7 @@ export const scrollMenuList = [
       },
       {
         id: "sticky-cursor",
-        name: "StickyCursor",
+        name: "Sticky Cursor",
         path: "/docs/components/sticky-cursor",
         new: true,
       },
